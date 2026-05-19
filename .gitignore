@@ -1,0 +1,93 @@
+# ==========================================
+# Python (api.py, medii virtuale, cache)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Medii virtuale (Virtual Environments)
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ==========================================
+# Terraform (Fișiere de stare și secrete)
+# ==========================================
+# Loguri de crash
+crash.log
+crash.*.log
+
+# Folderul local de instanțiere (.terraform)
+.terraform/
+
+# Fișierele de stare (State files) - NU le pune pe Git deoarece conțin secrete!
+*.tfstate
+*.tfstate.*
+
+# Fișiere de variabile (unde pui chei/parole locale)
+*.tfvars
+*.tfvars.json
+
+# Override-uri locale
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Fișiere de configurare CLI pentru Terraform (.terraformrc)
+.terraformrc
+terraform.rc
+
+# ==========================================
+# Fișiere de mediu / Secrete generale
+# ==========================================
+.env
+.env.local
+.env.*.local
+secrets.json
+
+# ==========================================
+# Editor / IDE (VS Code, PyCharm) & OS
+# ==========================================
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Sistem de operare
+.DS_Store
+Thumbs.db
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Build]/
+/[Builds]/
+/[Logs]/
+/[UserSettings]/
+/[MemoryCaptures]/
