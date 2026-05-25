@@ -30,6 +30,12 @@ public class PlanetariumManager : MonoBehaviour
     public float leftHandClockFontSize = 0.08f;
     public Color leftHandClockColor = Color.white;
 
+    [Header("Intro Video")]
+    public bool playIntroVideo = true;
+    public float introVideoDistance = 10f;
+    [Range(20, 100)] public float introVideoFov = 50f;
+    public string introVideoUrl = "https://api.exoplanethunter.binarysquad.club/api/assets/exohunt.mp4";
+
     [Header("Muzică")]
     public bool playMusicOnSceneStart = true;
     public string musicManagerName = "MusicManager";
@@ -88,11 +94,29 @@ public class PlanetariumManager : MonoBehaviour
 
     void Start()
     {
+        // Stelele se incarca imediat; muzica si video-ul pornesc dupa incarcare
         currentTime = DateTime.UtcNow;
-        PlaySceneMusic();
         CreateCardinalPoints();
         CreateLeftHandClock();
         StartCoroutine(FetchStarsFromAPI());
+
+        if (!playIntroVideo)
+            PlaySceneMusic();
+    }
+
+    void PlayIntroVideo()
+    {
+        GameObject videoHost = new GameObject("IntroVideoPlayer");
+        IntroVideoPlayer player = videoHost.AddComponent<IntroVideoPlayer>();
+        player.videoUrl = introVideoUrl;
+        player.screenDistance = introVideoDistance;
+        player.screenWidth = 4f * introVideoDistance * Mathf.Tan(introVideoFov * 0.5f * Mathf.Deg2Rad);
+        player.screenHeight = player.screenWidth * (2160f / 3200f); // aspect ratio 40:27
+    }
+
+    public void OnIntroVideoFinished()
+    {
+        PlaySceneMusic();
     }
 
     IEnumerator FetchStarsFromAPI()
@@ -115,11 +139,15 @@ public class PlanetariumManager : MonoBehaviour
                     // Preia locația din API
                     latitude = parsedData.latitudine;
                     longitude = parsedData.longitudine;
-                    
+
                     GenerateStars(parsedData.date);
                     OnStarsLoaded?.Invoke();
                 }
             }
+
+            // Video porneste dupa ce stelele s-au incarcat (indiferent de eroare API)
+            if (playIntroVideo)
+                PlayIntroVideo();
         }
     }
 

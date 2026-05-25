@@ -83,6 +83,7 @@
     <Compile Include="Assets/LeftHandActivator.cs" />
     <Compile Include="Assets/StarTwinkle.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" />
+    <Compile Include="Assets/IntroVideoPlayer.cs" />
     <Compile Include="Assets/ApiSettingsFetcher.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
