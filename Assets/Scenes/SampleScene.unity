@@ -1981,6 +1981,10 @@ MonoBehaviour:
   leftHandClockLocalRotation: {x: 65, y: 0, z: 0}
   leftHandClockFontSize: 0.08
   leftHandClockColor: {r: 1, g: 1, b: 1, a: 1}
+  playIntroVideo: 1
+  introVideoDistance: 10
+  introVideoFov: 50
+  introVideoUrl: https://api.exoplanethunter.binarysquad.club/api/assets/exohunt.mp4
   playMusicOnSceneStart: 1
   musicManagerName: MusicManager
   useRealTime: 1

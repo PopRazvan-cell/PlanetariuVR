@@ -13,9 +13,9 @@ public class IntroVideoPlayer : MonoBehaviour
 
     [Header("Screen Settings")]
     public float screenDistance = 10f;
-    public float screenWidth = 12f;
-    public float screenHeight = 8.1f; // 12 * (2160/3200) — aspect ratio 40:27
-    public float screenVerticalOffset = 3f;
+    public float screenWidth = 9.6f;
+    public float screenHeight = 6.48f; // 9.6 * (2160/3200) — aspect ratio 40:27
+    public float screenVerticalOffset = 2f;
 
     private VideoPlayer videoPlayer;
     private RenderTexture renderTexture;

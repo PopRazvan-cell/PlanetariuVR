@@ -110,7 +110,7 @@ public class PlanetariumManager : MonoBehaviour
         IntroVideoPlayer player = videoHost.AddComponent<IntroVideoPlayer>();
         player.videoUrl = introVideoUrl;
         player.screenDistance = introVideoDistance;
-        player.screenWidth = 4f * introVideoDistance * Mathf.Tan(introVideoFov * 0.5f * Mathf.Deg2Rad);
+        player.screenWidth = 3.2f * introVideoDistance * Mathf.Tan(introVideoFov * 0.5f * Mathf.Deg2Rad);
         player.screenHeight = player.screenWidth * (2160f / 3200f); // aspect ratio 40:27
     }
 
