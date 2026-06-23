@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1728
     height: 966
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 1204
+  controlID: 109
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 1205
+  controlID: 51
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1274
+  controlID: 42
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 382
     height: 567
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -220,12 +220,12 @@ MonoBehaviour:
     height: 567
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 14}
   - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 0
     width: 595
     height: 916
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -366,7 +366,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a855f3fff455f3ff6a5af3ffea64f3ff3865f3ffca69f3ffe8d6feff34d7feffc6dbfeff4eeafeff9ceafeff2eeffeffbafdfeff0afefeffa402ffff1c14ffff6a14fffffc18ffff8627ffffd427ffff6a2cffffda38ffff2639ffff9c3dffff3649ffff8249fffffc4dffff365bffff825bfffffc5fffff046affff526affffcc6effff907affffe07affff5e7fffff9c89ffffe889ffff668effffba98ffff0899ffff869dffff92a8ffffdea8ffff58adffff5cb7ffffa8b7ffff22bcffff64c6ffffb0c6ffff2acbffff52d5ffff9ed5ffff18daffffa0e4ffffece4ffff66e9ffff94f3ffffe2f3ffff78f8fffff8faffff86bb000052de0000
+      m_ExpandedIDs: 1cb8fdff5cb8fdfff4bcfdff8cc7fdffc6c7fdff3eccfdff24d6fdff66d6fdfffadafdfffafcfdff46fdfdffda01feff120ffeff2a0ffeffbe13feff9a58ffffe658ffff7a5dffff9e6affffea6affff7e6fffffae7cfffffa7cffff8e81ffffbe8effff0a8fffffa293ffffd69fffff22a0ffffb6a4ffff0cbfffff58bfffffecc3ffffb4d2ffffccd2ffff44d7ffff26e1ffff74e1ffff08e6ffff40f3ffff90f3ffff24f8ffff04fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -746,9 +746,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1016.80273, y: 530.43475, z: 35.93171}
+    m_Target: {x: 1044.5531, y: 525.0599, z: 24.760174}
     speed: 2
-    m_Value: {x: 1016.80273, y: 530.43475, z: 35.93171}
+    m_Value: {x: 1044.5531, y: 525.0599, z: 24.760174}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -794,9 +794,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.09337537, y: 0.2306206, z: 0.022242416, w: -0.96830577}
+    m_Target: {x: 0.03155212, y: 0.5832653, z: -0.022676371, w: 0.8113626}
     speed: 2
-    m_Value: {x: 0.09337465, y: 0.2306188, z: 0.022242242, w: -0.96829826}
+    m_Value: {x: 0.031551845, y: 0.58326024, z: -0.022676174, w: 0.8113556}
   m_Size:
     m_Target: 10
     speed: 2
@@ -971,7 +971,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Samples/XR Hands/1.4.3/HandVisualizer/Materials
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -979,16 +979,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Samples/XR Hands/1.4.3/HandVisualizer/Materials
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/popraul/PlanetariuVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ec910000
-    m_LastClickedID: 37356
-    m_ExpandedIDs: 000000007c7400007e7400008074000082740000d6910000
+    m_SelectedIDs: 78740000
+    m_LastClickedID: 29816
+    m_ExpandedIDs: 00000000727400007474000076740000787400007a740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1016,7 +1016,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c7400007e7400008074000082740000d6910000
+    m_ExpandedIDs: 00000000727400007474000076740000787400007a740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
