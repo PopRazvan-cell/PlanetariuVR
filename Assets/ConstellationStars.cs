@@ -261,7 +261,7 @@ public class ConstellationStars : MonoBehaviour
         new("alf Ori", 89.14f,  7.41f, 0.5f),
         new("gam Ori", 81.63f,  6.37f, 1.6f),
 
-        new("del Ori", 89.33f, -0.27f, 2.2f),
+        new("del Ori", 83.33f, -0.27f, 2.2f),
         new("eps Ori", 84.38f, -1.18f, 1.7f),
         new("zet Ori", 85.52f, -1.92f, 1.8f),
 
@@ -404,7 +404,6 @@ public class ConstellationStars : MonoBehaviour
         // --- HEAD, SHOULDERS & CONNECTIONS ---
     new ("Beta Herculis (Kornephoros)", 247.55f, 21.48f, 2.78f),
     new ("Delta Herculis (Sarin)", 258.75f, 24.83f, 3.12f),
-    new ("Alpha Herculis (Rasalgethi)", 258.66f, 14.39f, 3.31f),
     new ("Lambda Herculis", 262.68f, 26.11f, 4.41f),
 
     // --- ARMS & HANDS ---
@@ -426,7 +425,7 @@ public class ConstellationStars : MonoBehaviour
 
         // === Lyra ===
         new("alf Lyr", 279.23f, 38.78f, 0.0f),
-        new("bet Lyr", 28253f, 33.36f, 3.5f),
+        new("bet Lyr", 282.53f, 33.36f, 3.5f),
         new("gam Lyr", 284.66f, 32.69f, 3.2f),
         new("del Lyr", 283.47f, 36.98f, 4.3f),
         new("eps Lyr", 281.11f, 39.67f, 4.7f),
@@ -443,15 +442,13 @@ public class ConstellationStars : MonoBehaviour
         // === Aquila ===
         new("Alpha Aquilae (Altair)", 297.6958f, 8.8683f, 0.76f),
         new("Gamma Aquilae (Tarazed)", 296.5650f, 10.6133f, 2.72f),
+        new("Beta Aquilae (Alshain)", 298.8283f, 6.4067f, 3.71f),
         new("Zeta Aquilae (Okab)", 286.3525f, 13.8633f, 2.99f),
-        new("Theta Aquilae", 302.8263f, 0.8214f, 3.24f),
+        new("Theta Aquilae", 302.8263f, -0.74f, 3.24f),
         new("Delta Aquilae", 291.3746f, 3.1147f, 3.36f),
         new("Lambda Aquilae", 286.5621f, -4.8825f, 3.43f),
-        new("Beta Aquilae (Alshain)", 298.8283f, 6.4067f, 3.71f),
         new("Eta Aquilae", 298.1183f, 1.0056f, 3.87f),
         new("Epsilon Aquilae", 284.9058f, 15.0683f, 4.02f),
-        new("Iota Aquilae", 294.1804f, -1.2864f, 4.36f),
-
         
          //SCORPION
         new("Alpha Scorpii", 247.35f, -26.43f, 1.06f),
@@ -703,8 +700,8 @@ public class ConstellationStars : MonoBehaviour
         // Cassiopeia (W-ul corect)
         new("bet Cas", "alf Cas"),
         new("alf Cas", "gam Cas"),
-        new("gam Cas", "iota Cas"),
-        new("iota Cas", "zet Cas"),
+        new("gam Cas", "del Cas"),
+        new("del Cas", "eps Cas"),
 
         // Cepheus (Forma de casă)
         new("alf Cep", "bet Cep"),
@@ -824,6 +821,7 @@ public class ConstellationStars : MonoBehaviour
         new("alf Vir", "k Vir"),
         new("iot Vir", "k Vir"),
         new("iot Vir", "mu Vir"),
+        new("alf Vir", "gam Vir"),
 
 
         // Boötes (Forma de zmeu)
@@ -839,10 +837,11 @@ public class ConstellationStars : MonoBehaviour
 
         // Corona Borealis (Semicercul)
         new("alf CrB", "bet CrB"),
-        new("bet CrB", "del CrB"),
+        new("bet CrB", "the CrB"),
         new("alf CrB", "gam CrB"),
-        new("gam CrB", "eps CrB"),
-        new("eps CrB", "zet CrB"),
+        new("gam CrB", "del CrB"),
+        new("del CrB","eps CrB"),
+        new("eps CrB", "iot CrB"),
 
         // Hercules
         new("Zeta Herculis", "Epsilon Herculis"),
@@ -851,27 +850,20 @@ public class ConstellationStars : MonoBehaviour
         new("Eta Herculis", "Zeta Herculis"),
 
         // --- THE HEAD & SHOULDERS ---
-        new("Eta Herculis", "Beta Herculis (Kornephoros)"),
-        new("Zeta Herculis", "Delta Herculis (Sarin)"),
-        new("Beta Herculis (Kornephoros)", "Delta Herculis (Sarin)"),
+        new("Zeta Herculis", "Beta Herculis (Kornephoros)"),
         new("Delta Herculis (Sarin)", "Lambda Herculis"),
-        new("Lambda Herculis", "Alpha Herculis (Rasalgethi)"),
 
         // --- THE RIGHT ARM & HAND ---
         new("Beta Herculis (Kornephoros)", "Gamma Herculis"),
-        new("Gamma Herculis", "Kappa Herculis"),
 
        // --- THE LEFT ARM & CLUB ---
-        new("Epsilon Herculis", "Mu Herculis"),
+        new("Epsilon Herculis", "Lambda Herculis"),
         new("Mu Herculis", "Xi Herculis"),
+        new("Mu Herculis", "Lambda Herculis"),
         new("Xi Herculis", "Omicron Herculis"),
-        new("Omicron Herculis", "95 Herculis"),
-        new("95 Herculis", "109 Herculis"),
-        new("109 Herculis", "110 Herculis"),
-        new("110 Herculis", "Omicron Herculis"),
 
         // --- THE UPPER RIGHT LEG ---
-        new("Zeta Herculis", "Sigma Herculis"),
+        new("Eta Herculis", "Sigma Herculis"),
         new("Sigma Herculis", "Tau Herculis"),
         new("Tau Herculis", "Phi Herculis"),
 
@@ -897,19 +889,17 @@ public class ConstellationStars : MonoBehaviour
         // --- THE BODY / SPINE ---
         new("Gamma Aquilae (Tarazed)", "Alpha Aquilae (Altair)"),
         new("Alpha Aquilae (Altair)", "Beta Aquilae (Alshain)"),
-        new("Beta Aquilae (Alshain)", "Eta Aquilae"),
         new("Eta Aquilae", "Delta Aquilae"),
+        new("Zeta Aquilae (Okab)", "Delta Aquilae"),
+        new("Eta Aquilae", "Theta Aquilae"),
 
         // --- LEFT WING (North) ---
-        new("Gamma Aquilae (Tarazed)", "Zeta Aquilae (Okab)"),
         new("Zeta Aquilae (Okab)", "Epsilon Aquilae"),
 
         // --- RIGHT WING (South) ---
-        new("Beta Aquilae (Alshain)", "Theta Aquilae"),
 
         // --- THE TAIL ---
-        new("Delta Aquilae", "Iota Aquilae"),
-        new("Iota Aquilae", "Lambda Aquilae"),
+        new("Delta Aquilae", "Lambda Aquilae"),
 
         // SCORPIUS
         new("Alpha Scorpii", "Sigma Scorpii"),
