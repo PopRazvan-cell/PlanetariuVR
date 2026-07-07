@@ -219,74 +219,86 @@ public class ConstellationStars : MonoBehaviour
 
     // Coordonate preluate din răspunsul API (J2000, grade)
     private static readonly ConstStarData[] constellationStars = new ConstStarData[]
+    // === star,ra,dec,luminosity
     {
         // === Ursa Major (Carul Mare) ===
-        new("alf UMa", 165.93f, 61.75f, 1.8f),
-        new("bet UMa", 165.46f, 56.38f, 2.4f),
-        new("gam UMa", 178.46f, 53.69f, 2.4f),
-        new("del UMa", 183.86f, 57.03f, 3.3f),
-        new("eps UMa", 193.51f, 55.96f, 1.8f),
-        new("zet UMa", 200.98f, 54.93f, 2.1f),
-        new("eta UMa", 206.88f, 49.31f, 1.9f),
+        new("alf UMa", 166.34f, 61.61f, 1.8f),
+        new("bet UMa", 165.85f, 56.24f, 2.4f),
+        new("gam UMa", 178.80f, 53.55f, 2.4f),
+        new("del UMa", 184.20f, 56.89f, 3.3f),
+        new("eps UMa", 193.80f, 55.82f, 1.8f),
+        new("zet UMa", 201.25f, 54.79f, 2.1f),
+        new("eta UMa", 207.15f, 49.18f, 1.9f),
 
         // === Ursa Minor (Carul Mic) ===
-        new("alf UMi", 37.95f, 89.26f, 2.0f),
-        new("bet UMi", 222.68f, 74.15f, 2.1f),
-        new("gam UMi", 230.18f, 71.83f, 3.0f),
-        new("del UMi", 263.05f, 86.59f, 4.4f),
-        new("eps UMi", 251.49f, 82.04f, 4.2f),
-        new("zet UMi", 236.01f, 77.79f, 4.3f),
-        new("eta UMi", 244.38f, 75.76f, 4.9f),
+        new("alf UMi", 46.25f, 89.37f, 2.0f),
+        new("bet UMi", 222.68f, 74.05f, 2.1f),
+        new("gam UMi", 230.19f, 71.74f, 3.0f),
+        new("del UMi", 261.04f, 86.56f, 4.4f),
+        new("eps UMi", 250.87f, 81.99f, 4.2f),
+        new("zet UMi", 235.82f, 77.71f, 4.3f),
+        new("eta UMi", 244.21f, 75.69f, 4.9f),
 
         // === Cassiopeia ===
-        new("alf Cas", 10.13f, 56.54f, 2.2f),
-        new("bet Cas", 2.30f, 59.15f, 2.3f),
-        new("gam Cas", 14.18f, 60.72f, 2.5f),
-        new("del Cas", 21.45f, 60.24f, 2.7f),
+        new("alf Cas", 10.50f, 56.67f, 2.2f),
+        new("bet Cas", 2.65f, 59.29f, 2.3f),
+        new("gam Cas", 14.58f, 60.85f, 2.5f),
+        new("del Cas", 21.75f, 60.36f, 2.7f),
         new("eps Cas", 28.60f, 63.67f, 3.4f),
 
+
         // === Cepheus ===
-        new("alf Cep", 319.64f, 62.59f, 2.4f),
-        new("bet Cep", 322.16f, 70.56f, 3.2f),
-        new("gam Cep", 354.84f, 77.63f, 3.2f),
-        new("del Cep", 337.29f, 58.42f, 4.1f),
-        new("eps Cep", 333.76f, 57.04f, 4.2f),
-        new("zet Cep", 332.71f, 73.72f, 3.4f),
+        new("alf Cep", 319.80f, 62.69f, 2.4f),
+        new("bet Cep", 322.25f, 70.67f, 3.2f),
+        new("gam Cep", 355.11f, 77.77f, 3.2f),
+        new("iota Cep", 342.6f, 66.33f, 4.1f),
+        new("zet Cep", 332.85f, 58.32f, 4.2f),
+        
+       
 
         // === Orion ===
-        new("lam Ori", 83.78f,  9.93f, 3.5f),
-        new("alf Ori", 88.79f,  7.41f, 0.5f),
-        new("gam Ori", 81.28f,  6.35f, 1.6f),
+        new("lam Ori", 84.14f,  9.95f, 3.5f),
+        new("alf Ori", 89.14f,  7.41f, 0.5f),
+        new("gam Ori", 81.63f,  6.37f, 1.6f),
 
-        new("del Ori", 83.00f, -0.30f, 2.2f),
-        new("eps Ori", 84.05f, -1.20f, 1.7f),
-        new("zet Ori", 85.19f, -1.94f, 1.8f),
+        new("del Ori", 89.33f, -0.27f, 2.2f),
+        new("eps Ori", 84.38f, -1.18f, 1.7f),
+        new("zet Ori", 85.52f, -1.92f, 1.8f),
 
-        new("kap Ori", 86.94f, -9.67f, 2.1f),
-        new("bet Ori", 78.63f, -8.20f, 0.1f),
+        new("kap Ori", 87.25f, -9.65f, 2.1f),
+        new("bet Ori", 78.94f, -8.17f, 0.1f),
 
-        new("pi6 Ori", 75.62f,  1.99f, 4.5f),
-        new("pi5 Ori", 74.64f,  2.61f, 3.7f),
-        new("pi4 Ori", 73.56f,  5.57f, 3.7f),
-        new("pi3 Ori", 72.46f,  6.96f, 3.2f),
-        new("pi2 Ori", 72.80f,  8.90f, 4.4f),
-        new("pi1 Ori", 72.65f, 10.11f, 4.7f),
+        new("pi6 Ori", 74.98f,  1.75f, 4.5f),
+        new("pi5 Ori", 73.90f,  2.48f, 3.7f),
+        new("pi4 Ori", 73.15f,  5.65f, 3.7f),
+        new("pi3 Ori", 72.81f,  7.00f, 3.2f),
+        new("pi2 Ori", 73.01f,  8.94f, 4.4f),
+        new("pi1 Ori", 74.08f, 10.19f, 4.7f),
 
         // === Canis Major ===
-        new("alf CMa", 101.29f, -16.72f, -1.5f), // Sirius
-        new("bet CMa",  95.67f, -17.96f,  2.0f), // Mirzam
-        new("gam CMa", 105.94f, -15.63f,  4.1f), // Muliphein
-        new("the CMa",  98.76f,  -9.55f,  4.1f), // Theta CMa
-        new("nu2 CMa",  99.95f, -18.40f,  3.9f), // Nu2 CMa
-        new("omi2 CMa",105.76f, -23.84f,  3.0f), // Omicron2
-        new("del CMa", 107.10f, -26.39f,  1.8f), // Wezen
-        new("eps CMa", 104.66f, -28.97f,  1.5f), // Adhara
-        new("eta CMa", 111.02f, -29.30f,  2.5f), // Aludra
-        new("zet CMa",  95.08f, -30.06f,  3.0f), // Furud
+        new("alf CMa", 101.57f, -16.75f, -1.5f), // Sirius
+        new("bet CMa",  95.96f, -17.96f,  2.0f), // Mirzam
+        new("gam CMa", 106.24f, -15.67f,  4.1f), // Muliphein
+        new("the CMa", 103.85f, -12.07f,  4.1f), // Theta CMa
+        new("nu2 CMa",  99.45f, -19.28f,  3.9f), // Nu2 CMa
+        new("omi2 CMa",106.03f, -23.87f,  3.0f), // Omicron2
+        new("del CMa", 107.36f, -26.43f,  1.8f), // Wezen
+        new("eps CMa", 104.91f, -29.00f,  1.5f), // Adhara
+        new("eta CMa", 111.28f, -29.35f,  2.5f), // Aludra
+        new("zet CMa",  95.32f, -30.07f,  3.0f), // Furud
+        new("sig CMa",  105.69f, -27.97f,  3.58f), 
+        new("omi1 CMa",  103.80f, -24.21f,  4.0f), 
+        new("v2 CMa", 99.45f, -19.28f,  4.09f),
+        new("xi2 CMa",  99.04f, -22.98f,  4.53f),
+        new("iot CMa",  104.32f, -17.09f,  4.34f), 
+        new("K CMa",  102.70f, -32.54f,  3.45f), 
+
 
         // === Canis Minor ===
         new("alf CMi", 114.83f, 5.22f, 0.4f),
         new("bet CMi", 119.62f, 6.38f, 2.9f),
+         
+       
 
         // === Gemini ===
         new("alf Gem", 113.65f, 31.89f, 1.58f), // Castor
@@ -311,26 +323,28 @@ public class ConstellationStars : MonoBehaviour
         new("eta Gem", 93.72f, 22.51f, 3.31f),  // Propus
         new("1 Gem", 91.03f, 23.26f, 4.16f),    // 1 Gem
 
+
         // === Taurus ===
-        new("bet Tau", 81.57f, 28.61f, 1.7f),  // Elnath
-        new("zet Tau", 84.41f, 21.14f, 3.0f),  // Zeta Tauri
-        new("alf Tau", 68.98f, 16.51f, 0.9f),  // Aldebaran
-        new("lam Tau", 60.17f, 12.49f, 3.5f),  // Lambda Tauri
+        new("bet Tau", 81.98f, 28.61f, 1.7f),  // Elnath
+        new("zet Tau", 84.80f, 21.14f, 3.0f),  // Zeta Tauri
+        new("alf Tau", 69.35f, 16.51f, 0.9f),  // Aldebaran
+        new("lam Tau", 60.53f, 12.56f, 3.5f),  // Lambda Tauri
+        new("the2 Tau", 67.54f, 15.92f, 3.45f),
+        new("gam Tau", 65.32f, 15.69f, 3.80f),
+        new("del Tau", 66.11f, 17.60f, 3.92f),
+        new("eps Tau", 67.53f, 19.23f, 3.69f),
         new("xi Tau",  51.79f,  9.73f, 3.7f),  // Xi Tauri
-        new("nu Tau",  56.20f,  5.77f, 3.9f),  // Nu Tauri
-        new("omi Tau", 51.20f,  9.03f, 3.6f),  // Omicron Tauri
-        new("tail",    53.00f, -1.00f, 4.2f),  
+       
+
+    
 
         // === Auriga ===
-        new("alf Aur", 79.17f, 46.00f, 0.1f),  // Capella
-        new("bet Aur", 89.88f, 44.95f, 1.9f),  // Menkalinan
-        new("del Aur", 89.88f, 54.28f, 3.7f),  // Delta Aurigae
-        new("eps Aur", 75.49f, 43.82f, 3.0f),  // Almaaz
-        new("zet Aur", 75.62f, 41.08f, 3.8f),  // Saclateni
-        new("eta Aur", 76.63f, 41.23f, 3.2f),  // Haedus
-        new("the Aur", 89.93f, 37.21f, 2.7f),  // Mahasim
-        new("iot Aur", 74.25f, 33.17f, 2.7f),  // Hassaleh
-        new("gam Aur", 81.57f, 28.61f, 1.7f),  // Elnath (istoric Gamma Aur)
+        new("alf Aur", 79.39f, 46.00f, 0.1f),  // Capella
+        new("bet Aur", 90.36f, 44.95f, 1.9f),  // Menkalinan
+        new("zet Aur", 76.07f, 41.11f, 3.8f),  // Saclateni
+        new("the Aur", 90.37f, 37.21f, 2.7f),  // Mahasim
+        new("iot Aur", 74.67f, 33.21f, 2.7f),  // Hassaleh
+        new("gam Aur", 81.98f, 28.61f, 1.7f),  // Elnath (istoric Gamma Aur)
 
         // === Leo ===
         new("alf Leo", 152.09f, 11.97f, 1.4f),
@@ -344,44 +358,75 @@ public class ConstellationStars : MonoBehaviour
 
         // === Virgo ===
         new("alf Vir", 201.30f, -11.16f, 1.0f),
-        new("bet Vir", 177.69f, 1.76f, 3.6f),
         new("gam Vir", 190.44f, -1.45f, 2.7f),
         new("del Vir", 193.92f, 3.42f, 3.4f),
         new("eps Vir", 195.05f, 10.96f, 2.8f), // Corectat (Vindemiatrix)
         new("zet Vir", 203.65f, -0.61f, 3.4f),
         new("eta Vir", 184.97f, -0.67f, 3.9f),
+        new("nu Vir", 185.32f, 6.38f, 4.1f),
+        new("k Vir", 213.58f, -10.39f, 4.3f),
+        new("iot Vir", 214.36f, -6.12f, 4.2f),
+        new("mu Vir", 221.12f, -5.77f, 3.9f),
+        new("tau Vir", 210.75f, 1.41f, 4.3f),
+        new("109 Vir", 221.90f, 1.78f, 3.9f),
+
+
+        
 
         // === Boötes ===
-        new("alf Boo", 213.92f, 19.18f, -0.1f),
-        new("bet Boo", 225.62f, 40.39f, 3.5f),
-        new("gam Boo", 218.04f, 38.32f, 3.0f),
-        new("del Boo", 228.89f, 33.31f, 3.5f),
-        new("eps Boo", 221.23f, 27.07f, 2.4f),
+        new("alf Boo", 214.22f, 19.05f, 0.1f),
+        new("bet Boo", 225.62f, 40.29f, 3.5f),
+        new("gam Boo", 218.29f, 38.19f, 3.0f),
+        new("del Boo", 229.15f, 33.21f, 3.5f),
+        new("eps Boo", 221.54f, 26.96f, 2.4f),
         new("zet Boo", 218.52f, 13.73f, 3.8f),
         new("eta Boo", 208.68f, 18.40f, 2.7f),
-        new("mu Boo", 231.11f, 37.37f, 4.3f),
+        new("rho Boo", 218.24f, 30.25f, 3.72f),
+
+         
 
         // === Corona Borealis ===
-        new("alf CrB", 233.67f, 26.71f, 2.2f),
-        new("bet CrB", 231.95f, 29.11f, 3.7f),
+        new("alf CrB", 233.96f, 26.71f, 2.2f),
+        new("bet CrB", 232.24f, 29.11f, 3.7f),
         new("gam CrB", 235.68f, 26.29f, 3.8f),
         new("del CrB", 237.40f, 26.07f, 4.6f),
         new("eps CrB", 239.38f, 26.88f, 4.1f),
-        new("zet CrB", 234.90f, 36.57f, 5.1f),
-        new("eta CrB", 230.83f, 30.28f, 5.0f),
+        new("iot CrB", 240.36f, 29.85f, 5.1f),
+        new("the CrB", 233.23f, 31.36f, 5.0f),
 
         // === Hercules ===
-        new("alf Her", 258.66f, 14.39f, 3.5f),
-        new("bet Her", 247.61f, 21.49f, 2.8f),
-        new("gam Her", 245.43f, 19.15f, 3.8f),
-        new("del Her", 257.77f, 24.84f, 3.1f),
-        new("eps Her", 255.33f, 30.93f, 3.9f),
-        new("zet Her", 250.22f, 31.60f, 2.8f),
-        new("eta Her", 250.78f, 38.92f, 3.5f),
+        // --- THE KEYSTONE (The Torso) ---
+    new("Zeta Herculis", 250.32f, 31.60f, 2.81f),
+    new ("Pi Herculis", 258.76f, 36.80f, 3.16f),
+    new ("Eta Herculis", 250.72f, 38.92f, 3.48f),
+    new ("Epsilon Herculis", 255.07f, 30.92f, 3.92f),
+
+        // --- HEAD, SHOULDERS & CONNECTIONS ---
+    new ("Beta Herculis (Kornephoros)", 247.55f, 21.48f, 2.78f),
+    new ("Delta Herculis (Sarin)", 258.75f, 24.83f, 3.12f),
+    new ("Alpha Herculis (Rasalgethi)", 258.66f, 14.39f, 3.31f),
+    new ("Lambda Herculis", 262.68f, 26.11f, 4.41f),
+
+    // --- ARMS & HANDS ---
+    new ("Gamma Herculis", 245.48f, 19.15f, 3.74f),
+    new ("Kappa Herculis", 242.02f, 17.05f, 5.00f),
+    new ("Mu Herculis", 266.61f, 27.72f, 3.42f),
+    new ("Xi Herculis", 268.70f, 29.23f, 3.70f),
+    new ("Omicron Herculis", 271.88f, 28.76f, 3.84f),
+
+    // --- LEGS & FEET ---
+    new ("Theta Herculis", 269.06f, 37.25f, 3.86f),
+    new ("Iota Herculis", 264.86f, 46.00f, 3.82f),
+    new ("Tau Herculis", 244.93f, 46.31f, 3.91f),
+    new ("Phi Herculis", 242.19f, 44.93f, 4.23f),
+    new ("Sigma Herculis", 248.52f, 42.43f, 4.20f),
+    new ("109 Herculis", 275.91f, 21.77f, 3.85f),
+    new ("110 Herculis", 281.41f, 20.54f, 4.19f),
+    new ("95 Herculis", 270.37f, 21.59f, 4.26f),
 
         // === Lyra ===
         new("alf Lyr", 279.23f, 38.78f, 0.0f),
-        new("bet Lyr", 282.53f, 33.36f, 3.5f),
+        new("bet Lyr", 28253f, 33.36f, 3.5f),
         new("gam Lyr", 284.66f, 32.69f, 3.2f),
         new("del Lyr", 283.47f, 36.98f, 4.3f),
         new("eps Lyr", 281.11f, 39.67f, 4.7f),
@@ -396,45 +441,67 @@ public class ConstellationStars : MonoBehaviour
         new("zet Cyg", 318.15f, 30.22f, 3.2f),
 
         // === Aquila ===
-        new("alf Aql", 297.70f, 8.87f, 0.8f),
-        new("bet Aql", 298.83f, 6.42f, 3.7f),
-        new("gam Aql", 296.58f, 10.61f, 2.7f),
-        new("del Aql", 289.04f, 3.11f, 3.4f),
-        new("eps Aql", 284.15f, 15.07f, 4.0f),
-        new("zet Aql", 286.35f, 13.86f, 3.0f),
+        new("Alpha Aquilae (Altair)", 297.6958f, 8.8683f, 0.76f),
+        new("Gamma Aquilae (Tarazed)", 296.5650f, 10.6133f, 2.72f),
+        new("Zeta Aquilae (Okab)", 286.3525f, 13.8633f, 2.99f),
+        new("Theta Aquilae", 302.8263f, 0.8214f, 3.24f),
+        new("Delta Aquilae", 291.3746f, 3.1147f, 3.36f),
+        new("Lambda Aquilae", 286.5621f, -4.8825f, 3.43f),
+        new("Beta Aquilae (Alshain)", 298.8283f, 6.4067f, 3.71f),
+        new("Eta Aquilae", 298.1183f, 1.0056f, 3.87f),
+        new("Epsilon Aquilae", 284.9058f, 15.0683f, 4.02f),
+        new("Iota Aquilae", 294.1804f, -1.2864f, 4.36f),
 
-        // === Scorpius ===
-        new("alf Sco", 247.35f, -26.43f, 1.1f),
-        new("bet Sco", 241.35f, -19.81f, 2.6f),
-        new("del Sco", 239.55f, -22.62f, 2.3f),
-        new("eps Sco", 252.53f, -34.29f, 2.3f),
-        new("eta Sco", 257.96f, -43.24f, 3.3f),
-        new("zet Sco", 253.94f, -42.36f, 3.6f),
-        new("mu Sco", 252.93f, -38.04f, 3.0f),
-        new("gam Sco", 221.05f, -29.21f, 2.8f),
-        new("kap Sco", 264.83f, -39.03f, 2.4f),
-        new("iot Sco", 266.86f, -40.13f, 3.0f),
+        
+         //SCORPION
+        new("Alpha Scorpii", 247.35f, -26.43f, 1.06f),
+        new("Lambda Scorpii", 263.40f, -37.10f, 1.62f),
+        new("Theta Scorpii", 264.63f, -43.00f, 1.86f),
+        new("Delta Scorpii", 240.08f, -22.62f, 2.29f),
+        new("Epsilon Scorpii", 252.17f, -34.29f, 2.29f),
+        new("Kappa Scorpii", 264.29f, -39.03f, 2.39f),
+        new("Beta 1 Scorpii", 241.35f, -19.80f, 2.56f),
+        new("Upsilon Scorpii", 262.80f, -37.30f, 2.70f),
+        new("Sigma Scorpii", 244.30f, -25.58f, 2.89f),
 
-        // === Sagittarius ===
-        new("alf Sgr", 288.44f, -40.36f, 3.9f),
-        new("bet Sgr", 289.06f, -44.46f, 2.1f),
-        new("gam Sgr", 271.46f, -30.42f, 3.0f),
-        new("del Sgr", 275.24f, -29.83f, 2.7f),
-        new("eps Sgr", 276.04f, -34.38f, 1.8f),
-        new("zet Sgr", 285.64f, -29.88f, 2.6f),
-        new("eta Sgr", 274.31f, -36.76f, 3.1f),
+        //SAGETATOR
+        new("Epsilon Sagittarii", 276.04f, -34.38f, 1.79f),
+        new("Sigma Sagittarii", 283.82f, -26.30f, 2.05f),
+        new("Zeta Sagittarii", 285.82f, -29.88f, 2.60f),
+        new("Delta Sagittarii", 275.29f, -29.83f, 2.72f),
+        new("Lambda Sagittarii", 277.04f, -25.42f, 2.82f),
+        new("Pi Sagittarii", 287.62f, -21.02f, 2.88f),
+        new("Gamma 2 Sagittarii", 271.54f, -30.42f, 2.98f),
+        new("Eta Sagittarii", 272.75f, -36.76f, 3.11f),
+        new("Phi Sagittarii", 282.42f, -26.99f, 3.17f),
+        new("Tau Sagittarii", 286.44f, -27.67f, 3.32f),
+        new("Xi 2 Sagittarii", 284.40f, -21.14f, 3.52f),
+        new("Omicron Sagittarii", 286.13f, -21.74f, 3.76f),
+        new("Mu Sagittarii", 273.46f, -21.06f, 3.84f),
+        new("Rho 1 Sagittarii", 289.47f, -17.85f, 3.92f),
+        new("Beta 1 Sagittarii", 290.71f, -44.46f, 3.96f),
+        new("Beta 2 Sagittarii", 290.75f, -44.79f, 4.27f),
+        new("Alpha Sagittarii", 290.96f, -40.61f, 3.97f),
+        new("Iota Sagittarii", 299.17f, -41.87f, 4.12f),
+        new("Theta 1 Sagittarii", 300.38f, -35.28f, 4.37f),
+        new("Upsilon Sagittarii", 291.46f, -15.96f, 4.52f),
 
-        // === Pegasus ===
-        new("alf Peg", 346.19f, 15.21f, 2.5f),
-        new("bet Peg", 345.94f, 28.08f, 2.4f),
-        new("gam Peg", 3.31f, 15.18f, 2.8f),
-        new("eps Peg", 326.04f, 9.87f, 2.4f),
+        //PEGASUS
+        new("Epsilon Pegasi", 328.71f, 9.87f, 2.38f),
+        new("Beta Pegasi", 345.82f, 28.08f, 2.44f),
+        new("Alpha Pegasi", 346.18f, 15.20f, 2.49f),
+        new("Gamma Pegasi", 3.34f, 15.18f, 2.83f),
+        new("Eta Pegasi", 341.69f, 30.22f, 2.93f),
+        new("Theta Pegasi", 335.34f, 10.83f, 3.53f),
+        new("Mu Pegasi", 343.43f, 24.60f, 3.51f),
 
-        // === Andromeda ===
-        new("alf And", 2.09f, 29.09f, 2.1f),
-        new("bet And", 17.44f, 35.62f, 2.1f),
-        new("gam And", 30.97f, 42.33f, 2.3f), // Corectat
-        new("del And", 9.83f, 30.86f, 3.3f),
+        new("Alpha Andromedae", 2.10f, 29.08f, 2.07f),
+        new("Beta Andromedae", 17.56f, 35.62f, 2.07f),
+        new("Gamma 1 Andromedae", 31.06f, 42.33f, 2.10f),
+        new("Delta Andromedae", 9.81f, 30.87f, 3.27f),
+        new("Pi Andromedae", 20.25f, 41.24f, 4.41f),
+        new("Upsilon Andromedae", 24.20f, 41.40f, 4.10f),
+        new("Xi Andromedae", 20.40f, 45.52f, 4.54f),
 
         // === Perseus ===
         new("alf Per", 51.08f, 49.86f, 1.8f),
@@ -443,11 +510,15 @@ public class ConstellationStars : MonoBehaviour
         new("del Per", 55.73f, 47.71f, 3.0f),
         new("eps Per", 59.45f, 40.01f, 2.9f),
         new("zet Per", 58.55f, 31.88f, 2.9f),
+          
+       
 
         // === Triangulum ===
         new("alf Tri", 28.23f, 29.58f, 3.4f),
         new("bet Tri", 32.33f, 34.99f, 3.0f),
         new("gam Tri", 34.29f, 33.85f, 4.0f),
+
+        //=============================================================
 
         // === Aries ===
         new("alf Ari", 31.79f, 23.46f, 2.0f),
@@ -455,13 +526,22 @@ public class ConstellationStars : MonoBehaviour
         new("gam Ari", 28.48f, 19.28f, 3.9f),
 
         // === Cetus ===
-        new("alf Cet", 45.57f, 4.09f, 2.5f),
-        new("bet Cet", 10.89f, -17.99f, 2.0f),
-        new("gam Cet", 38.30f, 3.26f, 3.6f),
-        new("del Cet", 39.87f, 0.33f, 4.1f),
-        new("mu Cet", 41.10f, 10.15f, 4.3f),
-        new("zet Cet", 27.85f, -10.33f, 3.7f),
-        new("tau Cet", 26.02f, -15.94f, 3.5f),
+        new("Alp Cet", 45.57f, 4.08f, 2.54f),
+        new("Bet Cet", 11.05f, -17.99f, 2.04f),
+        new("Gam Cet", 41.07f, 3.23f, 3.47f),
+        new("Del Cet", 39.87f, 0.32f, 4.08f),
+        new("Eps Cet", 36.17f, -11.87f, 4.83f),
+        new("Zet Cet", 28.14f, -10.33f, 3.74f),
+        new("Eta Cet", 18.06f, -10.18f, 3.46f),
+        new("The Cet", 20.35f, -8.19f, 3.60f),
+        new("Iot Cet", 3.03f, -8.82f, 3.56f),
+        new("Lam Cet", 44.75f, 8.91f, 4.71f),
+        new("Mu Cet", 41.54f, 10.11f, 4.27f),
+        new("Nu Cet", 39.02f, 5.59f, 4.87f),
+        new("Xi 2 Cet", 33.32f, 8.46f, 4.30f),
+        new("Omi Cet", 34.83f, -2.97f, 3.04f),
+        new("Pi Cet", 41.01f, -13.86f, 4.33f),
+        new("Tau Cet", 26.02f, -15.93f, 3.49f),
 
         // === Hydra ===
         new("rho Hya", 132.11f,   5.84f, 4.3f), // Rho Hydrae
@@ -502,44 +582,102 @@ public class ConstellationStars : MonoBehaviour
         new("zet Crt", 176.19f, -18.35f, 4.7f), // Zeta Crateris, marginea cupei
         new("eta Crt", 179.00f, -17.15f, 5.2f), // Eta Crateris
 
-        // === Libra ===
-        new("alf Lib", 222.72f, -16.04f, 2.8f),
-        new("bet Lib", 229.25f, -9.38f, 2.6f),
-        new("gam Lib", 233.72f, -14.78f, 3.9f),
-        new("del Lib", 225.21f, -8.52f, 4.9f),
+        // LIBRA
+        new("Alp 1 Lib", 226.04f, -15.63f, 5.15f),
+        new("Alp 2 Lib", 226.13f, -16.04f, 2.75f),
+        new("Bet Lib", 229.21f, -9.38f, 2.61f),
+        new("Gam Lib", 233.91f, -14.79f, 3.91f),
+        new("Del Lib", 225.40f, -8.51f, 4.91f),
+        new("Eps Lib", 232.05f, -10.32f, 4.92f),
+        new("Zet Lib", 233.72f, -16.73f, 5.53f),
+        new("The Lib", 235.94f, -16.73f, 4.13f),
+        new("Iot 1 Lib", 232.88f, -19.79f, 4.54f),
+        new("Sig Lib", 234.33f, -25.28f, 3.25f),
+        new("Tau Lib", 234.02f, -18.14f, 3.66f),
+        new("Ups Lib", 234.54f, -28.14f, 3.60f),
 
-        // === Capricornus ===
-        new("alf Cap", 304.40f, -12.53f, 3.6f),
-        new("bet Cap", 305.28f, -14.78f, 3.1f),
-        new("gam Cap", 325.04f, -16.66f, 3.7f),
-        new("del Cap", 326.77f, -16.13f, 2.9f),
-        new("eps Cap", 324.36f, -19.27f, 4.5f),
-        new("zet Cap", 321.72f, -22.41f, 3.8f),
+        // CAPRICORNUS
+        new("Alp 1 Cap", 304.41f, -12.51f, 4.24f),
+        new("Alp 2 Cap", 304.51f, -12.54f, 3.57f),
+        new("Bet Cap", 305.25f, -14.78f, 3.08f),
+        new("Gam Cap", 325.02f, -16.66f, 3.68f),
+        new("Del Cap", 326.70f, -16.13f, 2.87f),
+        new("Eps Cap", 323.57f, -19.46f, 4.51f),
+        new("Zet Cap", 321.67f, -22.41f, 3.74f),
+        new("The Cap", 316.49f, -17.23f, 4.07f),
+        new("Iot Cap", 320.56f, -16.83f, 4.28f),
+        new("Kap Cap", 305.74f, -18.14f, 4.72f),
+        new("Lam Cap", 326.63f, -11.37f, 5.57f),
+        new("Mu Cap", 328.32f, -13.55f, 5.08f),
+        new("Nu Cap", 305.26f, -12.68f, 4.77f),
+        new("Rho Cap", 307.21f, -17.81f, 4.77f),
+        new("Psi Cap", 311.52f, -25.27f, 4.14f),
+        new("Omega Cap", 312.96f, -26.92f, 4.11f),
 
-        // === Aquarius ===
-        new("alf Aqr", 331.42f, -0.32f, 3.0f),
-        new("bet Aqr", 322.88f, -5.57f, 2.9f),
-        new("gam Aqr", 335.39f, -1.39f, 3.8f),
-        new("del Aqr", 340.91f, -15.82f, 3.3f),
-        new("eps Aqr", 311.96f, -9.49f, 3.8f),
-        new("zet Aqr", 337.21f, -0.01f, 3.6f),
+        // AQUARIUS
+        new("Alp Aqr", 331.44f, -0.32f, 2.94f),
+        new("Bet Aqr", 323.36f, -5.57f, 2.91f),
+        new("Gam Aqr", 335.43f, -1.38f, 3.85f),
+        new("Del Aqr", 343.68f, -15.82f, 3.27f),
+        new("Eps Aqr", 312.23f, -9.50f, 3.77f),
+        new("Zet 1 Aqr", 337.19f, -0.02f, 3.65f),
+        new("The Aqr", 334.18f, -7.86f, 4.16f),
+        new("Iot Aqr", 331.06f, -13.87f, 4.29f),
+        new("Kap Aqr", 336.96f, -4.23f, 5.03f),
+        new("Lam Aqr", 343.16f, -7.58f, 3.74f),
+        new("Mu Aqr", 313.32f, -8.85f, 4.73f),
+        new("Nu Aqr", 315.87f, -11.37f, 4.50f),
+        new("Pi Aqr", 336.41f, 1.38f, 4.66f),
+        new("Sigma Aqr", 336.12f, -10.68f, 4.82f),
+        new("Tau 2 Aqr", 341.65f, -13.59f, 4.05f),
+        new("Phi Aqr", 348.59f, -6.05f, 4.22f),
+        new("Psi 1 Aqr", 349.52f, -9.10f, 4.24f),
+        new("Omega 2 Aqr", 357.10f, -14.54f, 4.49f),
 
-        // === Pisces ===
-        new("alf Psc", 30.51f, 2.76f, 3.8f),
-        new("bet Psc", 345.96f, 3.82f, 4.5f),
-        new("gam Psc", 349.27f, 3.28f, 3.7f),
-        new("del Psc", 351.81f, 7.58f, 4.4f),
-        new("eps Psc", 15.71f, 7.89f, 4.3f),
-        new("zet Psc", 18.45f, 7.58f, 5.2f),
+        // PISCES
+        new("Alp Psc", 3.07f, 2.76f, 3.82f),
+        new("Bet Psc", 345.96f, 3.82f, 4.48f),
+        new("Gam Psc", 347.03f, 3.28f, 3.70f),
+        new("Del Psc", 12.22f, 7.59f, 4.44f),
+        new("Eps Psc", 5.92f, 7.89f, 4.27f),
+        new("Zet Psc", 18.06f, 7.58f, 5.21f),
+        new("Eta Psc", 22.92f, 15.34f, 3.62f),
+        new("The Psc", 348.06f, 6.37f, 4.27f),
+        new("Iot Psc", 354.12f, 5.63f, 4.13f),
+        new("Kap Psc", 353.58f, 1.25f, 4.87f),
+        new("Lam Psc", 353.15f, 1.95f, 4.49f),
+        new("Mu Psc", 22.14f, 6.13f, 4.84f),
+        new("Nu Psc", 22.04f, 5.48f, 4.88f),
+        new("Xi Psc", 20.32f, 3.21f, 4.61f),
+        new("Omi Psc", 22.18f, 9.15f, 4.26f),
+        new("Pi Psc", 21.46f, 17.48f, 5.54f),
+        new("Rho Psc", 20.98f, 19.18f, 5.35f),
+        new("Sigma Psc", 3.88f, 31.79f, 5.50f),
+        new("Tau Psc", 17.58f, 30.08f, 4.51f),
+        new("Omega Psc", 359.81f, 6.86f, 4.03f),
 
-        // === Draco ===
-        new("alf Dra", 211.10f, 64.38f, 3.7f),
-        new("bet Dra", 263.26f, 52.30f, 2.8f),
-        new("gam Dra", 269.15f, 51.49f, 2.2f),
-        new("del Dra", 288.08f, 67.66f, 3.1f),
-        new("eps Dra", 297.04f, 70.27f, 3.8f),
-        new("zet Dra", 256.49f, 65.71f, 3.2f),
-        new("eta Dra", 245.99f, 61.51f, 2.7f),
+        // DRACO
+        new("Alp Dra", 211.10f, 64.37f, 3.67f),
+        new("Bet Dra", 262.61f, 52.30f, 2.79f),
+        new("Gam Dra", 269.15f, 51.49f, 2.24f),
+        new("Del Dra", 287.97f, 67.66f, 3.07f),
+        new("Eps Dra", 297.02f, 70.34f, 3.84f),
+        new("Zet Dra", 257.19f, 65.71f, 3.17f),
+        new("Eta Dra", 247.74f, 61.52f, 2.73f),
+        new("The Dra", 240.47f, 58.56f, 4.01f),
+        new("Iot Dra", 231.23f, 58.96f, 3.29f),
+        new("Kap Dra", 188.37f, 69.78f, 3.87f),
+        new("Lam Dra", 172.85f, 69.33f, 3.84f),
+        new("Mu Dra", 256.44f, 54.47f, 4.91f),
+        new("Nu 1 Dra", 263.04f, 55.18f, 4.88f),
+        new("Xi Dra", 268.39f, 56.87f, 3.75f),
+        new("Omi Dra", 282.80f, 59.38f, 4.66f),
+        new("Pi Dra", 295.34f, 65.32f, 4.59f),
+        new("Rho Dra", 271.61f, 70.01f, 4.51f),
+        new("Sigma Dra", 293.45f, 69.66f, 4.68f),
+        new("Tau Dra", 288.87f, 73.35f, 4.45f),
+        new("Chi Dra", 275.26f, 72.73f, 3.57f),
+        new("Omega Dra", 264.24f, 68.75f, 4.80f),
     };
 
     private static readonly SegData[] constellationSegments = new SegData[]
@@ -565,8 +703,8 @@ public class ConstellationStars : MonoBehaviour
         // Cassiopeia (W-ul corect)
         new("bet Cas", "alf Cas"),
         new("alf Cas", "gam Cas"),
-        new("gam Cas", "del Cas"),
-        new("del Cas", "eps Cas"),
+        new("gam Cas", "iota Cas"),
+        new("iota Cas", "zet Cas"),
 
         // Cepheus (Forma de casă)
         new("alf Cep", "bet Cep"),
@@ -578,18 +716,15 @@ public class ConstellationStars : MonoBehaviour
 
         // Orion (Corpul și Centura)
         // === Orion ===
-        new("lam Ori", "alf Ori"),
-        new("lam Ori", "gam Ori"),
-        new("alf Ori", "gam Ori"),
-        new("alf Ori", "zet Ori"),
-        new("gam Ori", "del Ori"),
-        new("del Ori", "eps Ori"),
-        new("eps Ori", "zet Ori"),
-        new("zet Ori", "kap Ori"),
-        new("del Ori", "bet Ori"),
-        new("kap Ori", "bet Ori"),
-        new("eps Ori", "tet Ori"),
-        new("tet Ori", "iot Ori"),
+        new("lam Ori", "alf Ori"), //da
+        new("lam Ori", "gam Ori"), //da 
+        new("alf Ori", "zet Ori"), //da
+        new("gam Ori", "del Ori"), //da
+        new("del Ori", "eps Ori"), //da
+        new("eps Ori", "zet Ori"), //da
+        new("zet Ori", "kap Ori"), //da
+        new("del Ori", "bet Ori"), //da
+        new("kap Ori", "bet Ori"), //da
         new("gam Ori", "pi3 Ori"),
         new("pi3 Ori", "pi2 Ori"),
         new("pi2 Ori", "pi1 Ori"),
@@ -599,18 +734,26 @@ public class ConstellationStars : MonoBehaviour
 
         // Canis Major
         // === capul ===
-        new("the CMa", "alf CMa"),   // theta -> Sirius
-        new("alf CMa", "nu2 CMa"),   // Sirius -> nu2
+        new("the CMa", "iot CMa"),   // theta -> Sirius
+        new("iot CMa", "gam CMa"),   // Sirius -> nu2
         new("the CMa", "gam CMa"),   // theta -> Muliphein
+        new("iot CMa", "alf CMa"),
         // === partea din față ===
-        new("bet CMa", "alf CMa"),   // Mirzam -> Sirius
+        new("v2 CMa", "alf CMa"),   // Mirzam -> Sirius
+        new("v2 CMa", "xi2 CMa"),
+        new("v2 CMa", "bet CMa"),
         // === corpul ===
         new("alf CMa", "omi2 CMa"),  // Sirius -> Omicron2
         new("omi2 CMa", "del CMa"),  // Omicron2 -> Wezen
+        new("del CMa","sig CMa"),
+        new("omi1 CMa","sig CMa"),
+        new("omi1 CMa","v2 CMa"),
+
         // === partea din spate / picioare ===
-        new("del CMa", "eps CMa"),   // Wezen -> Adhara
+        new("sig CMa", "eps CMa"),   // Wezen -> Adhara
         new("del CMa", "eta CMa"),   // Wezen -> Aludra
         new("eps CMa", "zet CMa"),   // Adhara -> Furud
+        new("eps CMa", "K CMa"), 
 
         // Canis Minor
         new("alf CMi", "bet CMi"),
@@ -640,29 +783,24 @@ public class ConstellationStars : MonoBehaviour
         new("eta Gem", "1 Gem"),
 
         // Taurus 
-        new("bet Tau", "alf Tau"),
+        new("bet Tau", "eps Tau"),
         new("zet Tau", "alf Tau"),
-        new("alf Tau", "lam Tau"),
+        new("gam Tau", "lam Tau"),
         new("lam Tau", "xi Tau"),
-        new("nu Tau", "xi Tau"),
-        new("xi Tau", "omi Tau"),
-        new("omi Tau", "tail"),
+        new("alf Tau", "the2 Tau"),
+        new("the2 Tau", "gam Tau"),
+        new("gam Tau", "del Tau"),
+        new("eps Tau", "del Tau"),
         
         // Auriga (Poligon)
         // conturul principal
-        new("del Aur", "bet Aur"),
+        
         new("bet Aur", "the Aur"),
         new("the Aur", "gam Aur"),
         new("gam Aur", "iot Aur"),
-        new("iot Aur", "alf Aur"),
-        new("alf Aur", "del Aur"),
-        // bara din mijloc
-        new("bet Aur", "alf Aur"),
-        // grupul mic din dreapta ("The Kids")
-        new("alf Aur", "eps Aur"),
-        new("eps Aur", "zet Aur"),
-        new("zet Aur", "eta Aur"),
-        new("eta Aur", "alf Aur"),
+        new("iot Aur", "zet Aur"),
+        new("zet Aur", "alf Aur"),
+        new("bet Aur","alf Aur"),
 
         // Leo (Secera și corpul)
         new("eps Leo", "mu Leo"),
@@ -676,19 +814,28 @@ public class ConstellationStars : MonoBehaviour
 
         // Virgo (Forma clasică Y)
         new("alf Vir", "zet Vir"),
-        new("zet Vir", "gam Vir"),
+        new("zet Vir", "del Vir"),
         new("gam Vir", "eta Vir"),
         new("gam Vir", "del Vir"),
         new("del Vir", "eps Vir"),
-        new("eta Vir", "bet Vir"),
+        new("eta Vir", "nu Vir"),
+        new("zet Vir", "tau Vir"),
+        new("109 Vir", "tau Vir"),
+        new("alf Vir", "k Vir"),
+        new("iot Vir", "k Vir"),
+        new("iot Vir", "mu Vir"),
+
 
         // Boötes (Forma de zmeu)
         new("alf Boo", "eps Boo"),
         new("eps Boo", "del Boo"),
         new("del Boo", "bet Boo"),
         new("bet Boo", "gam Boo"),
-        new("gam Boo", "alf Boo"),
+        new("gam Boo", "rho Boo"),
         new("alf Boo", "eta Boo"),
+        new("alf Boo", "rho Boo"),
+        new("alf Boo", "zet Boo"),
+
 
         // Corona Borealis (Semicercul)
         new("alf CrB", "bet CrB"),
@@ -698,12 +845,39 @@ public class ConstellationStars : MonoBehaviour
         new("eps CrB", "zet CrB"),
 
         // Hercules
-        new("alf Her", "bet Her"),
-        new("bet Her", "gam Her"),
-        new("gam Her", "del Her"),
-        new("del Her", "eps Her"),
-        new("eps Her", "zet Her"),
-        new("zet Her", "eta Her"),
+        new("Zeta Herculis", "Epsilon Herculis"),
+        new("Epsilon Herculis", "Pi Herculis"),
+        new("Pi Herculis", "Eta Herculis"),
+        new("Eta Herculis", "Zeta Herculis"),
+
+        // --- THE HEAD & SHOULDERS ---
+        new("Eta Herculis", "Beta Herculis (Kornephoros)"),
+        new("Zeta Herculis", "Delta Herculis (Sarin)"),
+        new("Beta Herculis (Kornephoros)", "Delta Herculis (Sarin)"),
+        new("Delta Herculis (Sarin)", "Lambda Herculis"),
+        new("Lambda Herculis", "Alpha Herculis (Rasalgethi)"),
+
+        // --- THE RIGHT ARM & HAND ---
+        new("Beta Herculis (Kornephoros)", "Gamma Herculis"),
+        new("Gamma Herculis", "Kappa Herculis"),
+
+       // --- THE LEFT ARM & CLUB ---
+        new("Epsilon Herculis", "Mu Herculis"),
+        new("Mu Herculis", "Xi Herculis"),
+        new("Xi Herculis", "Omicron Herculis"),
+        new("Omicron Herculis", "95 Herculis"),
+        new("95 Herculis", "109 Herculis"),
+        new("109 Herculis", "110 Herculis"),
+        new("110 Herculis", "Omicron Herculis"),
+
+        // --- THE UPPER RIGHT LEG ---
+        new("Zeta Herculis", "Sigma Herculis"),
+        new("Sigma Herculis", "Tau Herculis"),
+        new("Tau Herculis", "Phi Herculis"),
+
+        // --- THE UPPER LEFT LEG ---
+        new("Pi Herculis", "Theta Herculis"),
+        new("Theta Herculis", "Iota Herculis"),
 
         // Lyra
         new("alf Lyr", "eps Lyr"),
@@ -720,40 +894,79 @@ public class ConstellationStars : MonoBehaviour
         new("gam Cyg", "eps Cyg"), // Aripile
 
         // Aquila
-        new("alf Aql", "bet Aql"),
-        new("alf Aql", "gam Aql"),
-        new("alf Aql", "del Aql"),
-        new("del Aql", "eps Aql"),
-        new("del Aql", "zet Aql"),
+        // --- THE BODY / SPINE ---
+        new("Gamma Aquilae (Tarazed)", "Alpha Aquilae (Altair)"),
+        new("Alpha Aquilae (Altair)", "Beta Aquilae (Alshain)"),
+        new("Beta Aquilae (Alshain)", "Eta Aquilae"),
+        new("Eta Aquilae", "Delta Aquilae"),
 
-        // Scorpius (Cârligul)
-        new("alf Sco", "bet Sco"),
-        new("bet Sco", "del Sco"),
-        new("alf Sco", "tau Sco"), // (Dacă adaugi tau ulterior, altfel leagă de eps)
-        new("alf Sco", "eps Sco"),
-        new("eps Sco", "mu Sco"),
-        new("mu Sco", "zet Sco"),
-        new("zet Sco", "eta Sco"),
+        // --- LEFT WING (North) ---
+        new("Gamma Aquilae (Tarazed)", "Zeta Aquilae (Okab)"),
+        new("Zeta Aquilae (Okab)", "Epsilon Aquilae"),
 
-        // Sagittarius (Ceainicul)
-        new("gam Sgr", "del Sgr"),
-        new("del Sgr", "eps Sgr"),
-        new("eps Sgr", "zet Sgr"),
-        new("zet Sgr", "gam Sgr"), // Corpul ceainicului
-        new("del Sgr", "eta Sgr"),
-        new("zet Sgr", "alf Sgr"),
+        // --- RIGHT WING (South) ---
+        new("Beta Aquilae (Alshain)", "Theta Aquilae"),
 
-        // Pegasus (Pătratul Mare)
-        new("alf Peg", "bet Peg"),
-        new("bet Peg", "gam Peg"),
-        // a 4-a stea e alf And (Sirrah), pe care o ai la Andromeda
-        new("gam Peg", "alf Peg"),
-        new("eps Peg", "alf Peg"),
+        // --- THE TAIL ---
+        new("Delta Aquilae", "Iota Aquilae"),
+        new("Iota Aquilae", "Lambda Aquilae"),
 
-        // Andromeda
-        new("alf And", "del And"),
-        new("del And", "bet And"),
-        new("bet And", "gam And"),
+        // SCORPIUS
+        new("Alpha Scorpii", "Sigma Scorpii"),
+        new("Alpha Scorpii", "Tau Scorpii"),
+        new("Alpha Scorpii", "Delta Scorpii"),
+        new("Delta Scorpii", "Beta 1 Scorpii"),
+        new("Delta Scorpii", "Pi Scorpii"),
+        new("Tau Scorpii", "Epsilon Scorpii"),
+        new("Epsilon Scorpii", "Mu 1 Scorpii"),
+        new("Mu 1 Scorpii", "Zeta 2 Scorpii"),
+        new("Zeta 2 Scorpii", "Eta Scorpii"),
+        new("Eta Scorpii", "Theta Scorpii"),
+        new("Theta Scorpii", "Iota 1 Scorpii"),
+        new("Iota 1 Scorpii", "Kappa Scorpii"),
+        new("Kappa Scorpii", "Lambda Scorpii"),
+        new("Lambda Scorpii", "Upsilon Scorpii"),
+
+        // SAGITTARIUS (Asterismul "Ceainicul" și structura principală)
+        new("Gamma 2 Sagittarii", "Delta Sagittarii"),
+        new("Delta Sagittarii", "Epsilon Sagittarii"),
+        new("Epsilon Sagittarii", "Gamma 2 Sagittarii"),
+        new("Delta Sagittarii", "Lambda Sagittarii"),
+        new("Lambda Sagittarii", "Phi Sagittarii"),
+        new("Phi Sagittarii", "Delta Sagittarii"),
+        new("Phi Sagittarii", "Sigma Sagittarii"),
+        new("Sigma Sagittarii", "Tau Sagittarii"),
+        new("Tau Sagittarii", "Zeta Sagittarii"),
+        new("Zeta Sagittarii", "Sigma Sagittarii"),
+        new("Lambda Sagittarii", "Mu Sagittarii"),
+        new("Mu Sagittarii", "Xi 2 Sagittarii"),
+        new("Xi 2 Sagittarii", "Omicron Sagittarii"),
+        new("Omicron Sagittarii", "Pi Sagittarii"),
+        new("Pi Sagittarii", "Beta 1 Sagittarii"),
+        new("Beta 1 Sagittarii", "Alpha Sagittarii"),
+
+        // PEGASUS (Pătratul Pegas și membrele)
+        new("Alpha Pegasi", "Beta Pegasi"),
+        new("Beta Pegasi", "Scheat"), // Scheat a rămas cu numele propriu în lista anterioară, reprezentând Beta Pegasi
+        new("Beta Pegasi", "Alpha Andromedae"), // Împarte steaua cu Andromeda pentru a închide pătratul
+        new("Alpha Andromedae", "Gamma Pegasi"),
+        new("Gamma Pegasi", "Alpha Pegasi"),
+        new("Alpha Pegasi", "Zeta Pegasi"),
+        new("Zeta Pegasi", "Theta Pegasi"),
+        new("Theta Pegasi", "Epsilon Pegasi"),
+        new("Beta Pegasi", "Eta Pegasi"),
+        new("Eta Pegasi", "Matar"),
+        new("Matar", "Mu Pegasi"),
+
+        // ANDROMEDA
+        new("Alpha Andromedae", "Delta Andromedae"),
+        new("Delta Andromedae", "Beta Andromedae"),
+        new("Beta Andromedae", "Gamma 1 Andromedae"),
+        new("Beta Andromedae", "Mu Andromedae"),
+        new("Mu Andromedae", "Nu Andromedae"),
+        new("Delta Andromedae", "Epsilon Andromedae"),
+        new("Epsilon Andromedae", "Zeta Andromedae"),
+        new("Gamma 1 Andromedae", "Phi Andromedae"),
 
         // Perseus
         new("alf Per", "gam Per"),
@@ -772,11 +985,23 @@ public class ConstellationStars : MonoBehaviour
         new("bet Ari", "gam Ari"),
 
         // Cetus
-        new("alf Cet", "gam Cet"),
-        new("gam Cet", "del Cet"),
-        new("del Cet", "mu Cet"),
-        new("mu Cet", "zet Cet"),
-        new("zet Cet", "tau Cet"),
+        new("Bet Cet", "Iot Cet"),
+        new("Iot Cet", "Eta Cet"),
+        new("Eta Cet", "The Cet"),
+        new("The Cet", "Zet Cet"),
+        new("Zet Cet", "Tau Cet"),
+        new("Tau Cet", "Bet Cet"),
+        new("Zet Cet", "Eps Cet"),
+        new("Eps Cet", "Del Cet"),
+        new("Del Cet", "Omi Cet"),
+        new("Del Cet", "Gam Cet"),
+        new("Gam Cet", "Alp Cet"),
+        new("Alp Cet", "Lam Cet"),
+        new("Lam Cet", "Mu Cet"),
+        new("Mu Cet", "Xi 2 Cet"),
+        new("Xi 2 Cet", "Nu Cet"),
+        new("Nu Cet", "Gam Cet"),
+        new("Omi Cet", "Pi Cet"),
 
         // Hydra
         // === Hydra: cap ===
@@ -821,39 +1046,93 @@ public class ConstellationStars : MonoBehaviour
         new("gam Crt", "zet Crt"),
         new("zet Crt", "eta Crt"),
 
-        // Libra
-        new("alf Lib", "bet Lib"),
-        new("bet Lib", "gam Lib"),
-        new("gam Lib", "del Lib"),
-        new("del Lib", "alf Lib"),
+       // LIBRA
+        new("Alp 2 Lib", "Bet Lib"),
+        new("Alp 2 Lib", "Gam Lib"),
+        new("Bet Lib", "Gam Lib"),
+        new("Bet Lib", "Iot 1 Lib"),
+        new("Gam Lib", "Zet Lib"),
+        new("Gam Lib", "The Lib"),
+        new("Sig Lib", "Ups Lib"),
+        new("Ups Lib", "Tau Lib"),
+        new("Tau Lib", "Alp 2 Lib"),
 
-        // Capricornus
-        new("alf Cap", "bet Cap"),
-        new("bet Cap", "gam Cap"),
-        new("gam Cap", "del Cap"),
-        new("del Cap", "eps Cap"),
-        new("eps Cap", "zet Cap"),
+        // CAPRICORNUS
+        new("Alp 2 Cap", "Alp 1 Cap"),
+        new("Alp 2 Cap", "Bet Cap"),
+        new("Alp 1 Cap", "Nu Cap"),
+        new("Bet Cap", "Rho Cap"),
+        new("Rho Cap", "The Cap"),
+        new("The Cap", "Iot Cap"),
+        new("Iot Cap", "Gam Cap"),
+        new("Gam Cap", "Del Cap"),
+        new("Del Cap", "Eps Cap"),
+        new("Eps Cap", "Zet Cap"),
+        new("Zet Cap", "Omega Cap"),
+        new("Omega Cap", "Psi Cap"),
+        new("Psi Cap", "Kap Cap"),
+        new("Kap Cap", "Bet Cap"),
+        new("Del Cap", "Lam Cap"),
+        new("Lam Cap", "Mu Cap"),
 
-        // Aquarius
-        new("alf Aqr", "bet Aqr"),
-        new("bet Aqr", "gam Aqr"),
-        new("gam Aqr", "del Aqr"),
-        new("del Aqr", "eps Aqr"),
-        new("eps Aqr", "zet Aqr"),
+        // AQUARIUS
+        new("Bet Aqr", "Alp Aqr"),
+        new("Alp Aqr", "Gam Aqr"),
+        new("Gam Aqr", "Zet 1 Aqr"),
+        new("Zet 1 Aqr", "Pi Aqr"),
+        new("Gam Aqr", "Eta Aqr"),
+        new("Alp Aqr", "The Aqr"),
+        new("The Aqr", "Iot Aqr"),
+        new("Iot Aqr", "Del Aqr"),
+        new("Del Aqr", "Lam Aqr"),
+        new("Lam Aqr", "Phi Aqr"),
+        new("Phi Aqr", "Psi 1 Aqr"),
+        new("Psi 1 Aqr", "Omega 2 Aqr"),
+        new("Bet Aqr", "Eps Aqr"),
+        new("Eps Aqr", "Nu Aqr"),
+        new("Nu Aqr", "Mu Aqr"),
+        new("Iot Aqr", "Sigma Aqr"),
+        new("Del Aqr", "Tau 2 Aqr"),
 
-        // Pisces
-        new("alf Psc", "bet Psc"),
-        new("bet Psc", "gam Psc"),
-        new("gam Psc", "del Psc"),
-        new("del Psc", "eps Psc"),
-        new("eps Psc", "zet Psc"),
+        // PISCES (Cordonul de nord, cordonul de sud și peștii)
+        new("Alp Psc", "Omi Psc"),
+        new("Omi Psc", "Nu Psc"),
+        new("Nu Psc", "Mu Psc"),
+        new("Mu Psc", "Zet Psc"),
+        new("Zet Psc", "Eps Psc"),
+        new("Eps Psc", "Del Psc"),
+        new("Del Psc", "Omega Psc"),
+        new("Omega Psc", "Iot Psc"),
+        new("Iot Psc", "Gam Psc"),
+        new("Gam Psc", "Bet Psc"),
+        new("Bet Psc", "The Psc"),
+        new("The Psc", "Iot Psc"),
+        new("Alp Psc", "Xi Psc"),
+        new("Xi Psc", "Eta Psc"),
+        new("Eta Psc", "Rho Psc"),
+        new("Rho Psc", "Pi Psc"),
+        new("Pi Psc", "Tau Psc"),
+        new("Tau Psc", "Sigma Psc"),
+        new("Sigma Psc", "Phi Psc"),
+        new("Alp Psc", "Lam Psc"),
+        new("Lam Psc", "Kap Psc"),
 
-        // Draco
-        new("alf Dra", "bet Dra"),
-        new("bet Dra", "gam Dra"),
-        new("gam Dra", "del Dra"),
-        new("del Dra", "eps Dra"),
-        new("eps Dra", "zet Dra"),
-        new("zet Dra", "eta Dra")
+        // DRACO (Corpul șerpuitor al dragonului și capul)
+        new("Gam Dra", "Bet Dra"),
+        new("Bet Dra", "Nu 1 Dra"),
+        new("Nu 1 Dra", "Xi Dra"),
+        new("Xi Dra", "Gam Dra"),
+        new("Xi Dra", "Omic Dra"),
+        new("Omic Dra", "Del Dra"),
+        new("Del Dra", "Eps Dra"),
+        new("Eps Dra", "Tau Dra"),
+        new("Tau Dra", "Chi Dra"),
+        new("Chi Dra", "Zet Dra"),
+        new("Zet Dra", "Eta Dra"),
+        new("Eta Dra", "The Dra"),
+        new("The Dra", "Iot Dra"),
+        new("Iot Dra", "Alp Dra"),
+        new("Alp Dra", "Kap Dra"),
+        new("Kap Dra", "Lam Dra"),
     };
 }
