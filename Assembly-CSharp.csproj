@@ -65,8 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
+    <Compile Include="Assets/TextToSpeechManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
     <Compile Include="Assets/StarData.cs" />
+    <Compile Include="Assets/LessonManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
     <Compile Include="Assets/ConstellationStars.cs" />
     <Compile Include="Assets/LookAtCamera.cs" />

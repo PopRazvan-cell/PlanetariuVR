@@ -9,6 +9,7 @@ public class ApiSettingsFetcher : MonoBehaviour
     public PlanetariumManager planetariumManager;
     public ConstellationRenderer constellationRenderer;
     public ConstellationStars constellationStars;
+    public LessonManager lessonManager;
     public string apiUrl = "https://api.exoplanethunter.binarysquad.club/api/setari";
     public float pollInterval = 1f;
 
@@ -22,6 +23,7 @@ public class ApiSettingsFetcher : MonoBehaviour
         public string foloseste_data_curenta;
         public string data_si_ora_obs;
         public string afisare_constelatii;
+        public int lectie_activa; // ID-ul lectiei active; 0 = nicio lectie
     }
 
     [Serializable]
@@ -37,6 +39,7 @@ public class ApiSettingsFetcher : MonoBehaviour
     private string previousFolosesteDataCurenta;
     private string previousDataSiOraObs;
     private string previousAfisareConstelatii;
+    private int previousLectieActiva = -1; // -1 = neinitializat (0 e o valoare valida: "fara lectie")
 
     void Start()
     {
@@ -53,8 +56,24 @@ public class ApiSettingsFetcher : MonoBehaviour
             constellationRenderer = FindObjectOfType<ConstellationRenderer>();
         if (constellationStars == null)
             constellationStars = FindObjectOfType<ConstellationStars>();
+        if (lessonManager == null)
+            lessonManager = FindObjectOfType<LessonManager>();
 
         StartCoroutine(PollSettings());
+    }
+
+    /// <summary>
+    /// Forteaza re-aplicarea tuturor setarilor live la urmatorul poll (reseteaza cache-ul de comparatie).
+    /// Apelata de LessonManager dupa terminarea unei lectii, ca sa readuca configuratia live.
+    /// </summary>
+    public void ForceReapply()
+    {
+        previousLatitudine = null;
+        previousLongitudine = null;
+        previousViteza = int.MinValue;
+        previousFolosesteDataCurenta = null;
+        previousDataSiOraObs = null;
+        previousAfisareConstelatii = null;
     }
 
     IEnumerator PollSettings()
@@ -88,6 +107,18 @@ public class ApiSettingsFetcher : MonoBehaviour
             }
 
             DateConfigurare cfg = response.date_configurare;
+
+            // --- Lectii: detectam schimbarea id-ului lectiei active si notificam LessonManager ---
+            if (lessonManager != null && cfg.lectie_activa != previousLectieActiva)
+            {
+                previousLectieActiva = cfg.lectie_activa;
+                lessonManager.OnLessonIdChanged(cfg.lectie_activa);
+            }
+
+            // Cat timp ruleaza o lectie, scenariul controleaza cerul (locatie/timp/constelatii/stele),
+            // asa ca NU aplicam setarile live din /api/setari ca sa nu se bata cap in cap.
+            if (lessonManager != null && lessonManager.IsLessonActive)
+                yield break;
 
             bool somethingChanged = false;
 

@@ -996,6 +996,7 @@ MonoBehaviour:
   planetariumManager: {fileID: 1600812347}
   constellationRenderer: {fileID: 0}
   constellationStars: {fileID: 0}
+  lessonManager: {fileID: 0}
   apiUrl: https://api.exoplanethunter.binarysquad.club/api/setari
   pollInterval: 1
 --- !u!114 &259715467
@@ -1949,6 +1950,8 @@ GameObject:
   - component: {fileID: 1600812348}
   - component: {fileID: 1600812347}
   - component: {fileID: 1600812349}
+  - component: {fileID: 1600812351}
+  - component: {fileID: 1600812350}
   m_Layer: 2
   m_Name: ManagerPlanetariu
   m_TagString: Untagged
@@ -1981,7 +1984,7 @@ MonoBehaviour:
   leftHandClockLocalRotation: {x: 65, y: 0, z: 0}
   leftHandClockFontSize: 0.08
   leftHandClockColor: {r: 1, g: 1, b: 1, a: 1}
-  playIntroVideo: 1
+  playIntroVideo: 0
   introVideoDistance: 10
   introVideoFov: 50
   introVideoUrl: https://api.exoplanethunter.binarysquad.club/api/assets/exohunt.mp4
@@ -2031,6 +2034,45 @@ MonoBehaviour:
   activeButtonBgColor: {r: 0.15, g: 0.6, b: 0.25, a: 0.9}
   astroLaser: {fileID: 0}
   interactionRange: 100
+--- !u!114 &1600812350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600812346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797c67038a38149618719cfbc7050fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageCode: ro
+  countryCode: RO
+--- !u!114 &1600812351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600812346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191184a5415244c6ba2d5d1db57224a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetariumManager: {fileID: 1600812347}
+  constellationRenderer: {fileID: 259715467}
+  constellationStars: {fileID: 259715468}
+  settingsFetcher: {fileID: 259715466}
+  speech: {fileID: 1600812350}
+  lectiiApiBase: https://api.exoplanethunter.binarysquad.club/api/lectii/
+  steleApiBase: https://api.exoplanethunter.binarysquad.club/api/stele/
+  leftHandAnchorName: LeftHandOnControllerAnchor
+  panelLocalPosition: {x: 0, y: 0.06, z: 0.02}
+  panelLocalRotation: {x: 65, y: 0, z: 0}
+  panelFontSize: 0.1
+  panelSize: {x: 60, y: 22}
+  panelTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1615950812
 GameObject:
   m_ObjectHideFlags: 0

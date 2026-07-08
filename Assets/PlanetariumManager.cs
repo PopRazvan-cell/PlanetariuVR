@@ -119,7 +119,7 @@ public class PlanetariumManager : MonoBehaviour
         PlaySceneMusic();
     }
 
-    IEnumerator FetchStarsFromAPI()
+    IEnumerator FetchStarsFromAPI(bool isInitialLoad = true)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(apiUrl))
         {
@@ -140,15 +140,47 @@ public class PlanetariumManager : MonoBehaviour
                     latitude = parsedData.latitudine;
                     longitude = parsedData.longitudine;
 
-                    GenerateStars(parsedData.date);
+                    LoadStars(parsedData.date);
                     OnStarsLoaded?.Invoke();
                 }
             }
 
-            // Video porneste dupa ce stelele s-au incarcat (indiferent de eroare API)
-            if (playIntroVideo)
+            // Video porneste doar la incarcarea initiala (nu si la restaurarea dupa o lectie)
+            if (isInitialLoad && playIntroVideo)
                 PlayIntroVideo();
         }
+    }
+
+    /// <summary>
+    /// Re-aduce stelele observatorului (observatorVR) si le pune inapoi pe cer.
+    /// Folosit de LessonManager pentru a reveni la cerul live dupa terminarea unei lectii.
+    /// </summary>
+    public void RestoreObserverStars()
+    {
+        StartCoroutine(FetchStarsFromAPI(false));
+    }
+
+    /// <summary>
+    /// Sterge setul curent de stele si genereaza unul nou din datele primite.
+    /// Folosit atat pentru incarcarea initiala, cat si pentru stelele unui scenariu de lectie.
+    /// </summary>
+    public void LoadStars(StarItem[] starDataArray)
+    {
+        ClearStars();
+        GenerateStars(starDataArray);
+    }
+
+    /// <summary>
+    /// Distruge toate obiectele-stea curente si goleste lista de actualizare.
+    /// </summary>
+    public void ClearStars()
+    {
+        foreach (StarInstance star in allStars)
+        {
+            if (star != null && star.starObject != null)
+                Destroy(star.starObject);
+        }
+        allStars.Clear();
     }
 
     void GenerateStars(StarItem[] starDataArray)
@@ -166,12 +198,20 @@ public class PlanetariumManager : MonoBehaviour
                 float raVal = float.Parse(cleanRa, culture);
                 float decVal = float.Parse(cleanDec, culture);
 
-                // Extragem magnitudinea vizuală (Vmag) pentru a calcula strălucirea
-                float magVal = 2.5f; 
+                // Extragem magnitudinea vizuală pentru a calcula strălucirea.
+                // observatorVR o pune în name ("Stea Vmag: 3.0"), iar stelele de lecție în description ("Magnitudine: 3.0").
+                float magVal = 2.5f;
                 if (!string.IsNullOrEmpty(item.name) && item.name.Contains("Vmag:"))
                 {
                     string magString = item.name.Replace("Stea Vmag:", "").Trim();
                     float.TryParse(magString, System.Globalization.NumberStyles.Float, culture, out magVal);
+                }
+                else if (!string.IsNullOrEmpty(item.description) && item.description.Contains("Magnitudine:"))
+                {
+                    string rest = item.description.Substring(item.description.IndexOf("Magnitudine:") + "Magnitudine:".Length);
+                    int newlineIdx = rest.IndexOfAny(new[] { '\n', '\r' });
+                    if (newlineIdx >= 0) rest = rest.Substring(0, newlineIdx);
+                    float.TryParse(rest.Trim(), System.Globalization.NumberStyles.Float, culture, out magVal);
                 }
 
                 // Generăm obiectul 3D în Unity

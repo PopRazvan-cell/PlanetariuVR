@@ -892,6 +892,8 @@ public class ConstellationStars : MonoBehaviour
         new("Eta Aquilae", "Delta Aquilae"),
         new("Zeta Aquilae (Okab)", "Delta Aquilae"),
         new("Eta Aquilae", "Theta Aquilae"),
+        new("Alpha Aquilae (Altair)", "Delta Aquilae"),
+
 
         // --- LEFT WING (North) ---
         new("Zeta Aquilae (Okab)", "Epsilon Aquilae"),
