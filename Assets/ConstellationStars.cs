@@ -451,15 +451,32 @@ public class ConstellationStars : MonoBehaviour
         new("Epsilon Aquilae", 284.9058f, 15.0683f, 4.02f),
         
          //SCORPION
-        new("Alpha Scorpii", 247.35f, -26.43f, 1.06f),
-        new("Lambda Scorpii", 263.40f, -37.10f, 1.62f),
-        new("Theta Scorpii", 264.63f, -43.00f, 1.86f),
-        new("Delta Scorpii", 240.08f, -22.62f, 2.29f),
-        new("Epsilon Scorpii", 252.17f, -34.29f, 2.29f),
-        new("Kappa Scorpii", 264.29f, -39.03f, 2.39f),
-        new("Beta 1 Scorpii", 241.35f, -19.80f, 2.56f),
-        new("Upsilon Scorpii", 262.80f, -37.30f, 2.70f),
-        new("Sigma Scorpii", 244.30f, -25.58f, 2.89f),
+        new("Alp Sco", 247.35f, -26.43f, 1.06f),
+        new("Lam Sco", 263.40f, -37.10f, 1.62f),
+        new("The Sco", 264.63f, -43.00f, 1.86f),
+        new("Eps Sco", 252.17f, -34.29f, 2.29f),
+        new("Del Sco", 240.08f, -22.62f, 2.29f),
+        new("Kap Sco", 264.29f, -39.03f, 2.39f),
+        new("Bet 1 Sco", 241.35f, -19.80f, 2.56f),
+        new("Ups Sco", 262.80f, -37.30f, 2.70f),
+        new("Tau Sco", 248.97f, -28.22f, 2.82f),
+        new("Sig Sco", 244.30f, -25.58f, 2.89f),
+        new("Iot 1 Sco", 271.30f, -40.13f, 2.99f),
+        new("Mu 1 Sco", 253.05f, -38.05f, 3.00f),
+        new("Gir Sco", 264.30f, -39.03f, 2.39f),
+        new("Pi Sco", 238.18f, -26.11f, 2.89f),
+        new("Eta Sco", 258.12f, -43.24f, 3.32f),
+        new("Mu 2 Sco", 253.22f, -38.02f, 3.56f),
+        new("Rho Sco", 239.53f, -29.21f, 3.87f),
+        new("Omega 1 Sco", 241.71f, -20.67f, 3.93f),
+        new("Zet 2 Sco", 253.88f, -42.36f, 3.62f),
+        new("Zet 1 Sco", 253.48f, -42.36f, 4.70f),
+        new("Nu Sco", 242.86f, -19.46f, 4.00f),
+        new("Xi Sco", 240.71f, -11.84f, 4.16f),
+        new("Iot 2 Sco", 272.39f, -41.83f, 4.78f),
+        new("Omega 2 Sco", 242.02f, -20.88f, 4.31f),
+        new("Psi Sco", 241.03f, -10.09f, 4.93f),
+        new("Chi Sco", 242.74f, -11.85f, 5.24f),
 
         //SAGETATOR
         new("Epsilon Sagittarii", 276.04f, -34.38f, 1.79f),
@@ -647,10 +664,11 @@ public class ConstellationStars : MonoBehaviour
         new("Nu Psc", 22.04f, 5.48f, 4.88f),
         new("Xi Psc", 20.32f, 3.21f, 4.61f),
         new("Omi Psc", 22.18f, 9.15f, 4.26f),
+        new("Phi Psc", 18.80f, 24.72f, 4.81f),
         new("Pi Psc", 21.46f, 17.48f, 5.54f),
         new("Rho Psc", 20.98f, 19.18f, 5.35f),
         new("Sigma Psc", 3.88f, 31.79f, 5.50f),
-        new("Tau Psc", 17.58f, 30.08f, 4.51f),
+        new("Ups Psc", 20.23f, 27.40f, 4.75f),
         new("Omega Psc", 359.81f, 6.86f, 4.03f),
 
         // DRACO
@@ -1040,14 +1058,10 @@ public class ConstellationStars : MonoBehaviour
 
        // LIBRA
         new("Alp 2 Lib", "Bet Lib"),
-        new("Alp 2 Lib", "Gam Lib"),
         new("Bet Lib", "Gam Lib"),
-        new("Bet Lib", "Iot 1 Lib"),
-        new("Gam Lib", "Zet Lib"),
         new("Gam Lib", "The Lib"),
-        new("Sig Lib", "Ups Lib"),
-        new("Ups Lib", "Tau Lib"),
-        new("Tau Lib", "Alp 2 Lib"),
+        new("Sig Lib", "Gam Lib"),
+        new("Sig Lib", "Alp 2 Lib"),
 
         // CAPRICORNUS
         new("Alp 2 Cap", "Alp 1 Cap"),
@@ -1088,26 +1102,26 @@ public class ConstellationStars : MonoBehaviour
 
         // PISCES (Cordonul de nord, cordonul de sud și peștii)
         new("Alp Psc", "Omi Psc"),
-        new("Omi Psc", "Nu Psc"),
+        new("Xi Psc", "Nu Psc"),
         new("Nu Psc", "Mu Psc"),
         new("Mu Psc", "Zet Psc"),
         new("Zet Psc", "Eps Psc"),
         new("Eps Psc", "Del Psc"),
         new("Del Psc", "Omega Psc"),
         new("Omega Psc", "Iot Psc"),
-        new("Iot Psc", "Gam Psc"),
-        new("Gam Psc", "Bet Psc"),
-        new("Bet Psc", "The Psc"),
+        new("Gam Psc", "The Psc"),
         new("The Psc", "Iot Psc"),
         new("Alp Psc", "Xi Psc"),
-        new("Xi Psc", "Eta Psc"),
         new("Eta Psc", "Rho Psc"),
-        new("Rho Psc", "Pi Psc"),
-        new("Pi Psc", "Tau Psc"),
-        new("Tau Psc", "Sigma Psc"),
-        new("Sigma Psc", "Phi Psc"),
-        new("Alp Psc", "Lam Psc"),
+        new("Eta Psc", "Omi Psc"),
+        new("Gam Psc", "Kap Psc"),
         new("Lam Psc", "Kap Psc"),
+        new("Lam Psc", "Iot Psc"),
+        new("Nu Psc", "Phi Psc"),
+        new("Sigma Psc", "Phi Psc"),
+        new("Ups Psc", "Phi Psc"),
+        new("Ups Psc", "Sigma Psc"),
+
 
         // DRACO (Corpul șerpuitor al dragonului și capul)
         new("Gam Dra", "Bet Dra"),
@@ -1126,5 +1140,7 @@ public class ConstellationStars : MonoBehaviour
         new("Iot Dra", "Alp Dra"),
         new("Alp Dra", "Kap Dra"),
         new("Kap Dra", "Lam Dra"),
+        new("Del Dra", "Xi Dra"),
+
     };
 }
