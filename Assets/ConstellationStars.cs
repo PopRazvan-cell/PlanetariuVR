@@ -477,7 +477,7 @@ public class ConstellationStars : MonoBehaviour
         new("Psi Scorpii", 241.03f, -10.09f, 4.93f),
         new("Chi Scorpii", 242.74f, -11.85f, 5.24f),
 
-        //SAGETATOR
+        //SAGETATOR----
         new("Epsilon Sagittarii", 276.04f, -34.38f, 1.79f),
         new("Sigma Sagittarii", 283.82f, -26.30f, 2.05f),
         new("Zeta Sagittarii", 285.82f, -29.88f, 2.60f),
@@ -499,22 +499,55 @@ public class ConstellationStars : MonoBehaviour
         new("Theta 1 Sagittarii", 300.38f, -35.28f, 4.37f),
         new("Upsilon Sagittarii", 291.46f, -15.96f, 4.52f),
 
-        //PEGASUS
-        new("Epsilon Pegasi", 328.71f, 9.87f, 2.38f),
-        new("Beta Pegasi", 345.82f, 28.08f, 2.44f),
-        new("Alpha Pegasi", 346.18f, 15.20f, 2.49f),
-        new("Gamma Pegasi", 3.34f, 15.18f, 2.83f),
-        new("Eta Pegasi", 341.69f, 30.22f, 2.93f),
-        new("Theta Pegasi", 335.34f, 10.83f, 3.53f),
-        new("Mu Pegasi", 343.43f, 24.60f, 3.51f),
+        //PEGASUS----
 
+        new("Alpha Pegasi", 346.18f, 15.20f, 2.49f),
+        new("Beta Pegasi", 345.82f, 28.08f, 2.44f),
+        new("Gamma Pegasi", 3.34f, 15.18f, 2.83f),
+        new("Epsilon Pegasi", 328.71f, 9.87f, 2.38f),
+        new("Zeta Pegasi", 340.37f, 10.83f, 3.41f),
+        new("Eta Pegasi", 341.69f, 30.22f, 2.93f),
+        new("Theta Pegasi", 335.34f, 6.20f, 3.53f),
+        new("Iota Pegasi", 333.76f, 25.34f, 3.77f),
+        new("Kappa Pegasi", 326.17f, 25.64f, 4.13f),
+        new("Lambda Pegasi", 342.13f, 23.56f, 3.97f),
+        new("Mu Pegasi", 343.43f, 24.60f, 3.51f),
+        new("Nu Pegasi", 319.64f, 20.21f, 4.86f),
+        new("Xi Pegasi", 341.72f, 12.10f, 4.20f),
+        new("Omicron Pegasi", 340.48f, 29.31f, 4.79f),
+        new("Pi 1 Pegasi", 332.48f, 33.17f, 5.58f),
+        new("Pi 2 Pegasi", 332.49f, 33.18f, 4.28f),
+        new("Rho Pegasi", 340.98f, 8.82f, 4.90f),
+        new("Sigma Pegasi", 343.30f, 9.40f, 5.16f),
+        new("Tau Pegasi", 347.88f, 23.74f, 4.58f),
+        new("Upsilon Pegasi", 348.65f, 23.40f, 4.40f),
+        new("Phi Pegasi", 3.39f, 19.12f, 5.08f),
+        new("Chi Pegasi", 3.76f, 20.21f, 4.79f),
+        new("Psi Pegasi", 358.46f, 25.14f, 4.63f),
+
+        // ANDROMEDA
         new("Alpha Andromedae", 2.10f, 29.08f, 2.07f),
         new("Beta Andromedae", 17.56f, 35.62f, 2.07f),
         new("Gamma 1 Andromedae", 31.06f, 42.33f, 2.10f),
         new("Delta Andromedae", 9.81f, 30.87f, 3.27f),
-        new("Pi Andromedae", 20.25f, 41.24f, 4.41f),
-        new("Upsilon Andromedae", 24.20f, 41.40f, 4.10f),
+        new("Epsilon Andromedae", 1.54f, 29.31f, 4.34f),
+        new("Zeta Andromedae", 11.83f, 24.27f, 4.08f),
+        new("Eta Andromedae", 14.33f, 23.42f, 4.42f),
+        new("Theta Andromedae", 3.42f, 38.68f, 4.61f),
+        new("Iota Andromedae", 359.88f, 43.27f, 4.29f),
+        new("Kappa Andromedae", 355.23f, 44.33f, 4.15f),
+        new("Lambda Andromedae", 354.88f, 46.46f, 3.82f),
+        new("Mu Andromedae", 14.15f, 38.50f, 3.87f),
+        new("Nu Andromedae", 12.45f, 41.07f, 4.53f),
         new("Xi Andromedae", 20.40f, 45.52f, 4.54f),
+        new("Omicron Andromedae", 345.54f, 42.33f, 3.62f),
+        new("Pi Andromedae", 20.25f, 41.24f, 4.41f),
+        new("Rho Andromedae", 4.30f, 37.97f, 5.18f),
+        new("Sigma Andromedae", 4.70f, 36.78f, 4.51f),
+        new("Tau Andromedae", 24.32f, 40.57f, 4.96f),
+        new("Upsilon Andromedae", 24.20f, 41.40f, 4.10f),
+        new("Phi Andromedae", 17.38f, 47.24f, 4.25f),
+        new("Chi Andromedae", 25.02f, 44.20f, 5.01f),
 
         // === Perseus ===
         new("alf Per", 51.08f, 49.86f, 1.8f),
@@ -530,8 +563,6 @@ public class ConstellationStars : MonoBehaviour
         new("alf Tri", 28.23f, 29.58f, 3.4f),
         new("bet Tri", 32.33f, 34.99f, 3.0f),
         new("gam Tri", 34.29f, 33.85f, 4.0f),
-
-        //=============================================================
 
         // === Aries ===
         new("alf Ari", 31.79f, 23.46f, 2.0f),
@@ -627,7 +658,7 @@ public class ConstellationStars : MonoBehaviour
         new("Psi Cap", 311.52f, -25.27f, 4.14f),
         new("Omega Cap", 312.96f, -26.92f, 4.11f),
 
-        // AQUARIUS
+        // AQUARIUS------
         new("Alp Aqr", 331.44f, -0.32f, 2.94f),
         new("Bet Aqr", 323.36f, -5.57f, 2.91f),
         new("Gam Aqr", 335.43f, -1.38f, 3.85f),
@@ -646,6 +677,11 @@ public class ConstellationStars : MonoBehaviour
         new("Phi Aqr", 348.59f, -6.05f, 4.22f),
         new("Psi 1 Aqr", 349.52f, -9.10f, 4.24f),
         new("Omega 2 Aqr", 357.10f, -14.54f, 4.49f),
+        new("b1 Aqr", 351.09f, -19.95f, 4.09f),
+        new("c2 Aqr", 347.2f, -21.02f, 3.84f),
+        
+
+
 
         // PISCES
         new("Alp Psc", 3.07f, 2.76f, 3.82f),
@@ -953,19 +989,28 @@ public class ConstellationStars : MonoBehaviour
         new("Omicron Sagittarii", "Pi Sagittarii"),
         new("Pi Sagittarii", "Beta 1 Sagittarii"),
         new("Beta 1 Sagittarii", "Alpha Sagittarii"),
+        new("Epsilon Sagittarii", "Zeta Sagittarii"),
 
-        // PEGASUS (Pătratul Pegas și membrele)
+        // PEGASUS
         new("Alpha Pegasi", "Beta Pegasi"),
-        new("Beta Pegasi", "Scheat"), // Scheat a rămas cu numele propriu în lista anterioară, reprezentând Beta Pegasi
-        new("Beta Pegasi", "Alpha Andromedae"), // Împarte steaua cu Andromeda pentru a închide pătratul
-        new("Alpha Andromedae", "Gamma Pegasi"),
-        new("Gamma Pegasi", "Alpha Pegasi"),
+        new("Alpha Pegasi", "Gamma Pegasi"),
+        new("Gamma Pegasi", "Alpha Andromedae"),
+        new("Beta Pegasi", "Alpha Andromedae"), // Pătratul Pegas (conexiunea directă dintre ambele)
         new("Alpha Pegasi", "Zeta Pegasi"),
         new("Zeta Pegasi", "Theta Pegasi"),
         new("Theta Pegasi", "Epsilon Pegasi"),
         new("Beta Pegasi", "Eta Pegasi"),
-        new("Eta Pegasi", "Matar"),
-        new("Matar", "Mu Pegasi"),
+        new("Eta Pegasi", "Mu Pegasi"),
+        new("Mu Pegasi", "Lambda Pegasi"),
+        new("Lambda Pegasi", "Iota Pegasi"),
+        new("Iota Pegasi", "Kappa Pegasi"),
+        new("Beta Pegasi", "Omicron Pegasi"),
+        new("Eta Pegasi", "Pi 2 Pegasi"),
+        new("Alpha Pegasi", "Xi Pegasi"),
+        new("Xi Pegasi", "Rho Pegasi"),
+        new("Rho Pegasi", "Sigma Pegasi"),
+        new("Gamma Pegasi", "Phi Pegasi"),
+        new("Phi Pegasi", "Chi Pegasi"),
 
         // ANDROMEDA
         new("Alpha Andromedae", "Delta Andromedae"),
@@ -975,7 +1020,16 @@ public class ConstellationStars : MonoBehaviour
         new("Mu Andromedae", "Nu Andromedae"),
         new("Delta Andromedae", "Epsilon Andromedae"),
         new("Epsilon Andromedae", "Zeta Andromedae"),
+        new("Zeta Andromedae", "Eta Andromedae"),
+        new("Alpha Andromedae", "Theta Andromedae"),
+        new("Theta Andromedae", "Iota Andromedae"),
+        new("Iota Andromedae", "Kappa Andromedae"),
+        new("Kappa Andromedae", "Lambda Andromedae"),
+        new("Lambda Andromedae", "Omicron Andromedae"),
         new("Gamma 1 Andromedae", "Phi Andromedae"),
+        new("Gamma 1 Andromedae", "Upsilon Andromedae"),
+        new("Upsilon Andromedae", "Tau Andromedae"),
+        new("Tau Andromedae", "Chi Andromedae"),
 
         // Perseus
         new("alf Per", "gam Per"),
@@ -1084,20 +1138,18 @@ public class ConstellationStars : MonoBehaviour
         new("Bet Aqr", "Alp Aqr"),
         new("Alp Aqr", "Gam Aqr"),
         new("Gam Aqr", "Zet 1 Aqr"),
-        new("Zet 1 Aqr", "Pi Aqr"),
-        new("Gam Aqr", "Eta Aqr"),
+        new("Zet 1 Aqr", "Eta Aqr"),
         new("Alp Aqr", "The Aqr"),
         new("The Aqr", "Iot Aqr"),
-        new("Iot Aqr", "Del Aqr"),
-        new("Del Aqr", "Lam Aqr"),
-        new("Lam Aqr", "Phi Aqr"),
-        new("Phi Aqr", "Psi 1 Aqr"),
-        new("Psi 1 Aqr", "Omega 2 Aqr"),
-        new("Bet Aqr", "Eps Aqr"),
-        new("Eps Aqr", "Nu Aqr"),
-        new("Nu Aqr", "Mu Aqr"),
-        new("Iot Aqr", "Sigma Aqr"),
+        new("Lam Aqr", "Psi 1 Aqr"),
         new("Del Aqr", "Tau 2 Aqr"),
+        new("Bet Aqr", "Eps Aqr"),
+        new("Eta Aqr", "Lam Aqr"),
+        new("Psi 1 Aqr", "b1 Aqr"),
+        new("The Aqr", "Sigma Aqr"),
+        new("Tau 2 Aqr", "Sigma Aqr"),
+        new("Tau 2 Aqr", "c2 Aqr"),
+
 
         // PISCES (Cordonul de nord, cordonul de sud și peștii)
         new("Alp Psc", "Omi Psc"),
