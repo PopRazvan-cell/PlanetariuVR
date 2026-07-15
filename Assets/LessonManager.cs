@@ -19,6 +19,8 @@ public class LessonManager : MonoBehaviour
     public ConstellationStars constellationStars;
     public ApiSettingsFetcher settingsFetcher;
     public TextToSpeechManager speech;
+    public QuizManager quiz;
+    public bool runQuizAtLessonEnd = true;
 
     [Header("API")]
     public string lectiiApiBase = "https://api.exoplanethunter.binarysquad.club/api/lectii/";
@@ -31,10 +33,9 @@ public class LessonManager : MonoBehaviour
     public bool preferServerAudio = true;
     [Range(0f, 1f)] public float narrationVolume = 1f;
 
-    [Header("Panou Text Lectie (pe mana stanga)")]
-    // Ancorat la mana stanga, ca ceasul din PlanetariumManager — nu acopera cerul.
-    public string leftHandAnchorName = "LeftHandOnControllerAnchor";
-    // Pozitionat putin mai sus decat ceasul (ceasul e la y=0.015), ca sa nu se suprapuna.
+    [Header("Panou Text Lectie (pe mana dreapta)")]
+    // Ancorat la mana dreapta, ca sa nu se suprapuna cu ceasul + locatia de pe mana stanga.
+    public string rightHandAnchorName = "RightHandOnControllerAnchor";
     public Vector3 panelLocalPosition = new Vector3(0f, 0.06f, 0.02f);
     public Vector3 panelLocalRotation = new Vector3(65f, 0f, 0f);
     public float panelFontSize = 0.08f;
@@ -107,6 +108,8 @@ public class LessonManager : MonoBehaviour
             settingsFetcher = FindObjectOfType<ApiSettingsFetcher>();
         if (speech == null)
             speech = FindObjectOfType<TextToSpeechManager>();
+        if (quiz == null)
+            quiz = FindObjectOfType<QuizManager>();
 
         // AudioSource pentru naratiunea de la server (2D, mereu audibil).
         narrationAudio = gameObject.AddComponent<AudioSource>();
@@ -115,7 +118,7 @@ public class LessonManager : MonoBehaviour
         narrationAudio.volume = narrationVolume;
     }
 
-    // Panoul e ancorat de mana stanga (parent), deci se misca odata cu mana — nu are nevoie de Update.
+    // Panoul e ancorat de mana dreapta (parent), deci se misca odata cu mana — nu are nevoie de Update.
 
     // ─────────────── Punct de intrare (apelat de ApiSettingsFetcher) ───────────────
 
@@ -245,8 +248,13 @@ public class LessonManager : MonoBehaviour
         // Lectia s-a terminat natural.
         Debug.Log($"LessonManager: lectia '{lectie.nume}' s-a terminat.");
         StopNarration();
-        activeLessonId = 0;
         HideCaption();
+
+        // Quiz la finalul lectiei (foloseste stelele scenariului curent, inca incarcate).
+        if (runQuizAtLessonEnd && quiz != null)
+            yield return StartCoroutine(quiz.RunQuiz());
+
+        activeLessonId = 0;
         RestoreAfterLesson();
     }
 
@@ -367,7 +375,7 @@ public class LessonManager : MonoBehaviour
 
         captionObject = new GameObject("LectieCaption");
 
-        Transform anchor = FindLeftHandAnchor();
+        Transform anchor = FindRightHandAnchor();
         if (anchor != null)
         {
             captionObject.transform.SetParent(anchor, false);
@@ -376,7 +384,7 @@ public class LessonManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("LessonManager: nu am gasit ancora mainii stangi; panoul lectiei nu are parinte.");
+            Debug.LogWarning("LessonManager: nu am gasit ancora mainii drepte; panoul lectiei nu are parinte.");
         }
 
         captionText = captionObject.AddComponent<TextMeshPro>();
@@ -398,15 +406,15 @@ public class LessonManager : MonoBehaviour
         captionObject.SetActive(false);
     }
 
-    Transform FindLeftHandAnchor()
+    Transform FindRightHandAnchor()
     {
-        GameObject anchor = GameObject.Find(leftHandAnchorName);
+        GameObject anchor = GameObject.Find(rightHandAnchorName);
         if (anchor != null) return anchor.transform;
 
-        anchor = GameObject.Find("LeftControllerAnchor");
+        anchor = GameObject.Find("RightControllerAnchor");
         if (anchor != null) return anchor.transform;
 
-        anchor = GameObject.Find("LeftHandAnchor");
+        anchor = GameObject.Find("RightHandAnchor");
         return anchor != null ? anchor.transform : null;
     }
 

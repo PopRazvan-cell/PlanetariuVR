@@ -629,6 +629,7 @@ MonoBehaviour:
   laserLength: 10000
   smoothingSpeed: 15
   isLaserActive: 1
+  suppressPinchAction: 0
   laserColor: {r: 0, g: 1, b: 0.2, a: 1}
   laserStartWidth: 0.015
   laserEndWidth: 0.004
@@ -1875,6 +1876,7 @@ MonoBehaviour:
   laserLength: 2000
   smoothingSpeed: 15
   isLaserActive: 1
+  suppressPinchAction: 0
   laserColor: {r: 0, g: 1, b: 0.2, a: 1}
   laserStartWidth: 0.015
   laserEndWidth: 0.004
@@ -1952,6 +1954,7 @@ GameObject:
   - component: {fileID: 1600812349}
   - component: {fileID: 1600812351}
   - component: {fileID: 1600812350}
+  - component: {fileID: 1600812352}
   m_Layer: 2
   m_Name: ManagerPlanetariu
   m_TagString: Untagged
@@ -2048,6 +2051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   languageCode: ro
   countryCode: RO
+  enginePackage: com.reecedunn.espeak
 --- !u!114 &1600812351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,14 +2069,55 @@ MonoBehaviour:
   constellationStars: {fileID: 259715468}
   settingsFetcher: {fileID: 259715466}
   speech: {fileID: 1600812350}
+  quiz: {fileID: 0}
+  runQuizAtLessonEnd: 1
   lectiiApiBase: https://api.exoplanethunter.binarysquad.club/api/lectii/
   steleApiBase: https://api.exoplanethunter.binarysquad.club/api/stele/
-  leftHandAnchorName: LeftHandOnControllerAnchor
+  assetsApiBase: https://api.exoplanethunter.binarysquad.club/api/assets/
+  preferServerAudio: 1
+  narrationVolume: 1
+  rightHandAnchorName: RightHandOnControllerAnchor
   panelLocalPosition: {x: 0, y: 0.06, z: 0.02}
   panelLocalRotation: {x: 65, y: 0, z: 0}
   panelFontSize: 0.1
   panelSize: {x: 60, y: 22}
   panelTextColor: {r: 1, g: 1, b: 1, a: 1}
+  wrapCharsPerLine: 60
+--- !u!114 &1600812352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600812346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5844f09583344393b4b37de6a7b9bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHand: {fileID: 850722365}
+  astroLaser: {fileID: 0}
+  speech: {fileID: 0}
+  planetariumManager: {fileID: 0}
+  questionsPerQuiz: 5
+  maxMagnitude: 4
+  pinchFinger: 1
+  pinchCooldown: 0.6
+  feedbackSeconds: 2.5
+  raycastDistance: 6000
+  distance: 2.5
+  questionHeight: 0.55
+  firstOptionOffset: 0.15
+  optionSpacing: 0.32
+  questionSize: {x: 2.2, y: 0.7}
+  optionSize: {x: 1.8, y: 0.28}
+  questionFontSize: 1
+  optionFontSize: 1
+  panelColor: {r: 0, g: 0, b: 0, a: 0.85}
+  optionColor: {r: 0.1, g: 0.15, b: 0.3, a: 0.92}
+  hoverColor: {r: 0.2, g: 0.35, b: 0.6, a: 0.95}
+  correctColor: {r: 0.15, g: 0.55, b: 0.2, a: 0.97}
+  wrongColor: {r: 0.7, g: 0.15, b: 0.15, a: 0.97}
 --- !u!1 &1615950812
 GameObject:
   m_ObjectHideFlags: 0

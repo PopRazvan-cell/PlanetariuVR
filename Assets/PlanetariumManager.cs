@@ -15,6 +15,13 @@ public class PlanetariumManager : MonoBehaviour
     public GameObject starPrefab;
     public float radius = 1000f; // Distanța stelelor față de observator
 
+    [Header("Mărime stele (după magnitudine)")]
+    // Marimea se scaleaza cu radius (marime unghiulara constanta). Factori × radius:
+    public float starMinSize = 0.0008f;  // cele mai slabe stele
+    public float starMaxSize = 0.006f;   // cele mai strălucitoare
+    public float magBrightest = -1.5f;   // ~Sirius (cea mai strălucitoare)
+    public float magFaintest = 6.5f;     // limita ochiului liber
+
     [Header("Puncte Cardinale")]
     public bool showCardinalPoints = true;
     public float cardinalDistance = 150f;
@@ -136,11 +143,19 @@ public class PlanetariumManager : MonoBehaviour
 
                 if (parsedData != null && parsedData.date != null)
                 {
-                    // Preia locația din API
-                    latitude = parsedData.latitudine;
-                    longitude = parsedData.longitudine;
+                    // Preia locația observatorului — DAR nu suprascrie latitudinea/longitudinea
+                    // dacă tocmai rulează o lecție (scenariul e autoritatea; altfel cursa de la
+                    // pornire ar suprascrie locația primului scenariu cu cea a observatorului).
+                    LessonManager lm = FindObjectOfType<LessonManager>();
+                    if (lm == null || !lm.IsLessonActive)
+                    {
+                        latitude = parsedData.latitudine;
+                        longitude = parsedData.longitudine;
+                        LoadStars(parsedData.date);
+                    }
+                    // Daca ruleaza o lectie, scenariul controleaza stelele si locatia;
+                    // stelele observatorului se reincarca la finalul lectiei (RestoreObserverStars).
 
-                    LoadStars(parsedData.date);
                     OnStarsLoaded?.Invoke();
                 }
             }
@@ -231,11 +246,13 @@ public class PlanetariumManager : MonoBehaviour
                     sd.desc = item.description;
                 }
 
-                // Calculăm o scală aparentă adecvată pentru vizualizarea în VR la distanțe mari
-                float baseScale = radius * 0.0015f; 
-                float magnitudeFactor = Mathf.Clamp(5f - magVal, 0.5f, 4f);
-                float starScale = baseScale * magnitudeFactor; 
-                
+                // Luminozitate perceptuală din magnitudine: magnitudinea e deja o scală
+                // logaritmică (perceptuală), deci mapăm liniar între cea mai strălucitoare
+                // și limita vizibilă → factor 0..1 (0 = slabă, 1 = strălucitoare).
+                float brightness = Mathf.Clamp01(Mathf.InverseLerp(magFaintest, magBrightest, magVal));
+                // Mărimea scalează cu radius (mărime unghiulară constantă).
+                float starScale = radius * Mathf.Lerp(starMinSize, starMaxSize, brightness);
+
                 newStar.transform.localScale = new Vector3(starScale, starScale, starScale);
 
                 // Adăugăm steaua în lista de actualizare

@@ -15,6 +15,7 @@ public class AstroLaser : MonoBehaviour
     public float smoothingSpeed = 15f;
     private Vector3 currentSmoothedEndPoint;
     public bool isLaserActive = true;
+    [HideInInspector] public bool suppressPinchAction = false; // dezactiveaza trimiterea TIC in timpul quiz-ului
     public Color laserColor = new Color(0f, 1f, 0.2f, 1f);
     public float laserStartWidth = 0.015f;
     public float laserEndWidth = 0.004f;
@@ -170,7 +171,7 @@ public class AstroLaser : MonoBehaviour
             }
 
             bool isPinching = rightHand.GetFingerIsPinching(pinchFinger);
-            if (isPinching && !wasPinching && Time.time >= lastPinchTime + pinchCooldown)
+            if (!suppressPinchAction && isPinching && !wasPinching && Time.time >= lastPinchTime + pinchCooldown)
             {
                 if (!string.IsNullOrEmpty(currentTicId))
                 {

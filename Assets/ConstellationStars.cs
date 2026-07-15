@@ -280,7 +280,6 @@ public class ConstellationStars : MonoBehaviour
         new("bet CMa",  95.96f, -17.96f,  2.0f), // Mirzam
         new("gam CMa", 106.24f, -15.67f,  4.1f), // Muliphein
         new("the CMa", 103.85f, -12.07f,  4.1f), // Theta CMa
-        new("nu2 CMa",  99.45f, -19.28f,  3.9f), // Nu2 CMa
         new("omi2 CMa",106.03f, -23.87f,  3.0f), // Omicron2
         new("del CMa", 107.36f, -26.43f,  1.8f), // Wezen
         new("eps CMa", 104.91f, -29.00f,  1.5f), // Adhara
@@ -296,14 +295,13 @@ public class ConstellationStars : MonoBehaviour
 
         // === Canis Minor ===
         new("alf CMi", 114.83f, 5.22f, 0.4f),
-        new("bet CMi", 119.62f, 6.38f, 2.9f),
+        new("bet CMi", 111.79f, 8.29f, 2.9f),
          
        
 
         // === Gemini ===
         new("alf Gem", 113.65f, 31.89f, 1.58f), // Castor
         new("bet Gem", 116.33f, 28.03f, 1.16f), // Pollux
-        new("omi Gem", 114.79f, 34.58f, 4.89f), // Jishui
 
         new("the Gem", 103.20f, 33.96f, 3.60f), // θ Gem
         new("tau Gem", 107.78f, 30.25f, 4.41f), // τ Gem
@@ -354,16 +352,16 @@ public class ConstellationStars : MonoBehaviour
         new("eps Leo", 146.46f, 23.77f, 3.0f),
         new("zet Leo", 154.16f, 23.42f, 3.4f),
         new("eta Leo", 151.85f, 16.76f, 3.5f),
-        new("mu Leo", 148.88f, 26.00f, 3.9f),
+        new("mu Leo", 148.19f, 26.01f, 3.9f),
 
         // === Virgo ===
         new("alf Vir", 201.30f, -11.16f, 1.0f),
         new("gam Vir", 190.44f, -1.45f, 2.7f),
         new("del Vir", 193.92f, 3.42f, 3.4f),
-        new("eps Vir", 195.05f, 10.96f, 2.8f), // Corectat (Vindemiatrix)
+        new("eps Vir", 195.54f, 10.96f, 2.8f), // Corectat (Vindemiatrix)
         new("zet Vir", 203.65f, -0.61f, 3.4f),
         new("eta Vir", 184.97f, -0.67f, 3.9f),
-        new("nu Vir", 185.32f, 6.38f, 4.1f),
+        new("nu Vir", 176.46f, 6.53f, 4.1f),
         new("k Vir", 213.58f, -10.39f, 4.3f),
         new("iot Vir", 214.36f, -6.12f, 4.2f),
         new("mu Vir", 221.12f, -5.77f, 3.9f),
@@ -379,7 +377,7 @@ public class ConstellationStars : MonoBehaviour
         new("gam Boo", 218.29f, 38.19f, 3.0f),
         new("del Boo", 229.15f, 33.21f, 3.5f),
         new("eps Boo", 221.54f, 26.96f, 2.4f),
-        new("zet Boo", 218.52f, 13.73f, 3.8f),
+        new("zet Boo", 220.29f, 13.73f, 3.8f),
         new("eta Boo", 208.68f, 18.40f, 2.7f),
         new("rho Boo", 218.24f, 30.25f, 3.72f),
 
@@ -396,32 +394,28 @@ public class ConstellationStars : MonoBehaviour
 
         // === Hercules ===
         // --- THE KEYSTONE (The Torso) ---
-    new("Zeta Herculis", 250.32f, 31.60f, 2.81f),
-    new ("Pi Herculis", 258.76f, 36.80f, 3.16f),
-    new ("Eta Herculis", 250.72f, 38.92f, 3.48f),
-    new ("Epsilon Herculis", 255.07f, 30.92f, 3.92f),
+        new("Zeta Herculis", 250.32f, 31.60f, 2.81f),
+        new ("Pi Herculis", 258.76f, 36.80f, 3.16f),
+        new ("Eta Herculis", 250.72f, 38.92f, 3.48f),
+        new ("Epsilon Herculis", 255.07f, 30.92f, 3.92f),
 
-        // --- HEAD, SHOULDERS & CONNECTIONS ---
-    new ("Beta Herculis (Kornephoros)", 247.55f, 21.48f, 2.78f),
-    new ("Delta Herculis (Sarin)", 258.75f, 24.83f, 3.12f),
-    new ("Lambda Herculis", 262.68f, 26.11f, 4.41f),
+            // --- HEAD, SHOULDERS & CONNECTIONS ---
+        new ("Beta Herculis (Kornephoros)", 247.55f, 21.48f, 2.78f),
+        new ("Delta Herculis (Sarin)", 258.75f, 24.83f, 3.12f),
+        new ("Lambda Herculis", 262.68f, 26.11f, 4.41f),
 
-    // --- ARMS & HANDS ---
-    new ("Gamma Herculis", 245.48f, 19.15f, 3.74f),
-    new ("Kappa Herculis", 242.02f, 17.05f, 5.00f),
-    new ("Mu Herculis", 266.61f, 27.72f, 3.42f),
-    new ("Xi Herculis", 268.70f, 29.23f, 3.70f),
-    new ("Omicron Herculis", 271.88f, 28.76f, 3.84f),
+        // --- ARMS & HANDS ---
+        new ("Gamma Herculis", 245.48f, 19.15f, 3.74f),
+        new ("Mu Herculis", 266.61f, 27.72f, 3.42f),
+        new ("Xi Herculis", 269.44f, 29.25f, 3.70f),
+        new ("Omicron Herculis", 271.88f, 28.76f, 3.84f),
 
-    // --- LEGS & FEET ---
-    new ("Theta Herculis", 269.06f, 37.25f, 3.86f),
-    new ("Iota Herculis", 264.86f, 46.00f, 3.82f),
-    new ("Tau Herculis", 244.93f, 46.31f, 3.91f),
-    new ("Phi Herculis", 242.19f, 44.93f, 4.23f),
-    new ("Sigma Herculis", 248.52f, 42.43f, 4.20f),
-    new ("109 Herculis", 275.91f, 21.77f, 3.85f),
-    new ("110 Herculis", 281.41f, 20.54f, 4.19f),
-    new ("95 Herculis", 270.37f, 21.59f, 4.26f),
+        // --- LEGS & FEET ---
+        new ("Theta Herculis", 269.06f, 37.25f, 3.86f),
+        new ("Iota Herculis", 264.86f, 46.00f, 3.82f),
+        new ("Tau Herculis", 244.93f, 46.31f, 3.91f),
+        new ("Phi Herculis", 242.19f, 44.93f, 4.23f),
+        new ("Sigma Herculis", 248.52f, 42.43f, 4.20f),
 
         // === Lyra ===
         new("alf Lyr", 279.23f, 38.78f, 0.0f),
@@ -437,7 +431,6 @@ public class ConstellationStars : MonoBehaviour
         new("gam Cyg", 305.56f, 40.26f, 2.2f),
         new("del Cyg", 296.24f, 45.13f, 2.9f),
         new("eps Cyg", 311.57f, 33.97f, 2.5f),
-        new("zet Cyg", 318.15f, 30.22f, 3.2f),
 
         // === Aquila ===
         new("Alpha Aquilae (Altair)", 297.6958f, 8.8683f, 0.76f),
@@ -454,28 +447,18 @@ public class ConstellationStars : MonoBehaviour
         new("Alpha Scorpii", 247.35f, -26.43f, 1.06f),
         new("Lambda Scorpii", 263.40f, -37.10f, 1.62f),
         new("Theta Scorpii", 264.63f, -43.00f, 1.86f),
-        new("Epsilon Scorpii", 252.17f, -34.29f, 2.29f),
+        new("Epsilon Scorpii", 252.54f, -34.29f, 2.29f),
         new("Delta Scorpii", 240.08f, -22.62f, 2.29f),
-        new("Kappa Scorpii", 264.29f, -39.03f, 2.39f),
+        new("Kappa Scorpii", 265.62f, -39.03f, 2.39f),
         new("Beta 1 Scorpii", 241.35f, -19.80f, 2.56f),
         new("Upsilon Scorpii", 262.80f, -37.30f, 2.70f),
         new("Tau Scorpii", 248.97f, -28.22f, 2.82f),
-        new("Sigma Scorpii", 244.30f, -25.58f, 2.89f),
-        new("Pi Scorpii", 238.18f, -26.11f, 2.89f),
-        new("Iota 1 Scorpii", 271.30f, -40.13f, 2.99f),
+        new("Sigma Scorpii", 245.3f, -25.59f, 2.89f),
+        new("Pi Scorpii", 239.71f, -26.11f, 2.89f),
+        new("Iota 1 Scorpii", 266.9f, -40.13f, 2.99f),
         new("Mu 1 Scorpii", 253.05f, -38.05f, 3.00f),
         new("Eta Scorpii", 258.12f, -43.24f, 3.32f),
-        new("Mu 2 Scorpii", 253.22f, -38.02f, 3.56f),
         new("Zeta 2 Scorpii", 253.88f, -42.36f, 3.62f),
-        new("Rho Scorpii", 239.53f, -29.21f, 3.87f),
-        new("Omega 1 Scorpii", 241.71f, -20.67f, 3.93f),
-        new("Nu Scorpii", 242.86f, -19.46f, 4.00f),
-        new("Xi Scorpii", 240.71f, -11.84f, 4.16f),
-        new("Omega 2 Scorpii", 242.02f, -20.88f, 4.31f),
-        new("Zeta 1 Scorpii", 253.48f, -42.36f, 4.70f),
-        new("Iota 2 Scorpii", 272.39f, -41.83f, 4.78f),
-        new("Psi Scorpii", 241.03f, -10.09f, 4.93f),
-        new("Chi Scorpii", 242.74f, -11.85f, 5.24f),
 
         //SAGETATOR----
         new("Epsilon Sagittarii", 276.04f, -34.38f, 1.79f),
@@ -485,19 +468,13 @@ public class ConstellationStars : MonoBehaviour
         new("Lambda Sagittarii", 277.04f, -25.42f, 2.82f),
         new("Pi Sagittarii", 287.62f, -21.02f, 2.88f),
         new("Gamma 2 Sagittarii", 271.54f, -30.42f, 2.98f),
-        new("Eta Sagittarii", 272.75f, -36.76f, 3.11f),
-        new("Phi Sagittarii", 282.42f, -26.99f, 3.17f),
-        new("Tau Sagittarii", 286.44f, -27.67f, 3.32f),
+        new("Phi Sagittarii", 281.41f, -26.99f, 3.17f),
+        new("Tau Sagittarii", 286.74f, -27.67f, 3.32f),
         new("Xi 2 Sagittarii", 284.40f, -21.14f, 3.52f),
         new("Omicron Sagittarii", 286.13f, -21.74f, 3.76f),
         new("Mu Sagittarii", 273.46f, -21.06f, 3.84f),
-        new("Rho 1 Sagittarii", 289.47f, -17.85f, 3.92f),
         new("Beta 1 Sagittarii", 290.71f, -44.46f, 3.96f),
-        new("Beta 2 Sagittarii", 290.75f, -44.79f, 4.27f),
         new("Alpha Sagittarii", 290.96f, -40.61f, 3.97f),
-        new("Iota Sagittarii", 299.17f, -41.87f, 4.12f),
-        new("Theta 1 Sagittarii", 300.38f, -35.28f, 4.37f),
-        new("Upsilon Sagittarii", 291.46f, -15.96f, 4.52f),
 
         //PEGASUS----
 
@@ -574,15 +551,15 @@ public class ConstellationStars : MonoBehaviour
         new("Bet Cet", 11.05f, -17.99f, 2.04f),
         new("Gam Cet", 41.07f, 3.23f, 3.47f),
         new("Del Cet", 39.87f, 0.32f, 4.08f),
-        new("Eps Cet", 36.17f, -11.87f, 4.83f),
+        new("Eps Cet", 39.89f, -11.87f, 4.83f),
         new("Zet Cet", 28.14f, -10.33f, 3.74f),
-        new("Eta Cet", 18.06f, -10.18f, 3.46f),
-        new("The Cet", 20.35f, -8.19f, 3.60f),
-        new("Iot Cet", 3.03f, -8.82f, 3.56f),
+        new("Eta Cet", 17.15f, -10.18f, 3.46f),
+        new("The Cet", 21.01f, -8.18f, 3.60f),
+        new("Iot Cet", 4.86f, -8.82f, 3.56f),
         new("Lam Cet", 44.75f, 8.91f, 4.71f),
         new("Mu Cet", 41.54f, 10.11f, 4.27f),
         new("Nu Cet", 39.02f, 5.59f, 4.87f),
-        new("Xi 2 Cet", 33.32f, 8.46f, 4.30f),
+        new("Xi 2 Cet", 37.04f, 8.46f, 4.30f),
         new("Omi Cet", 34.83f, -2.97f, 3.04f),
         new("Pi Cet", 41.01f, -13.86f, 4.33f),
         new("Tau Cet", 26.02f, -15.93f, 3.49f),
@@ -627,18 +604,11 @@ public class ConstellationStars : MonoBehaviour
         new("eta Crt", 179.00f, -17.15f, 5.2f), // Eta Crateris
 
         // LIBRA
-        new("Alp 1 Lib", 226.04f, -15.63f, 5.15f),
-        new("Alp 2 Lib", 226.13f, -16.04f, 2.75f),
+        new("Alp 2 Lib", 222.72f, -16.04f, 2.75f),
         new("Bet Lib", 229.21f, -9.38f, 2.61f),
         new("Gam Lib", 233.91f, -14.79f, 3.91f),
-        new("Del Lib", 225.40f, -8.51f, 4.91f),
-        new("Eps Lib", 232.05f, -10.32f, 4.92f),
-        new("Zet Lib", 233.72f, -16.73f, 5.53f),
-        new("The Lib", 235.94f, -16.73f, 4.13f),
-        new("Iot 1 Lib", 232.88f, -19.79f, 4.54f),
-        new("Sig Lib", 234.33f, -25.28f, 3.25f),
-        new("Tau Lib", 234.02f, -18.14f, 3.66f),
-        new("Ups Lib", 234.54f, -28.14f, 3.60f),
+        new("The Lib", 238.46f, -16.73f, 4.13f),
+        new("Sig Lib", 226.02f, -25.28f, 3.25f),
 
         // CAPRICORNUS
         new("Alp 1 Cap", 304.41f, -12.51f, 4.24f),
@@ -646,11 +616,11 @@ public class ConstellationStars : MonoBehaviour
         new("Bet Cap", 305.25f, -14.78f, 3.08f),
         new("Gam Cap", 325.02f, -16.66f, 3.68f),
         new("Del Cap", 326.70f, -16.13f, 2.87f),
-        new("Eps Cap", 323.57f, -19.46f, 4.51f),
+        new("Eps Cap", 324.27f, -19.47f, 4.51f),
         new("Zet Cap", 321.67f, -22.41f, 3.74f),
         new("The Cap", 316.49f, -17.23f, 4.07f),
         new("Iot Cap", 320.56f, -16.83f, 4.28f),
-        new("Kap Cap", 305.74f, -18.14f, 4.72f),
+        new("Kap Cap", 325.66f, -18.87f, 4.72f),
         new("Lam Cap", 326.63f, -11.37f, 5.57f),
         new("Mu Cap", 328.32f, -13.55f, 5.08f),
         new("Nu Cap", 305.26f, -12.68f, 4.77f),
@@ -666,26 +636,20 @@ public class ConstellationStars : MonoBehaviour
         new("Eps Aqr", 312.23f, -9.50f, 3.77f),
         new("Zet 1 Aqr", 337.19f, -0.02f, 3.65f),
         new("The Aqr", 334.18f, -7.86f, 4.16f),
-        new("Iot Aqr", 331.06f, -13.87f, 4.29f),
-        new("Kap Aqr", 336.96f, -4.23f, 5.03f),
+        new("Iot Aqr", 331.61f, -13.87f, 4.29f),
         new("Lam Aqr", 343.16f, -7.58f, 3.74f),
-        new("Mu Aqr", 313.32f, -8.85f, 4.73f),
-        new("Nu Aqr", 315.87f, -11.37f, 4.50f),
-        new("Pi Aqr", 336.41f, 1.38f, 4.66f),
-        new("Sigma Aqr", 336.12f, -10.68f, 4.82f),
-        new("Tau 2 Aqr", 341.65f, -13.59f, 4.05f),
-        new("Phi Aqr", 348.59f, -6.05f, 4.22f),
-        new("Psi 1 Aqr", 349.52f, -9.10f, 4.24f),
-        new("Omega 2 Aqr", 357.10f, -14.54f, 4.49f),
+        new("Sigma Aqr", 337.66f, -10.68f, 4.82f),
+        new("Tau 2 Aqr", 342.4f, -13.59f, 4.05f),
+        new("Psi 1 Aqr", 348.97f, -9.09f, 4.24f),
         new("b1 Aqr", 351.09f, -19.95f, 4.09f),
         new("c2 Aqr", 347.2f, -21.02f, 3.84f),
+        new("Eta Aqr", 338.84f, -0.12f, 4.03f),
         
 
 
 
         // PISCES
         new("Alp Psc", 30.51f, 2.76f, 3.82f),
-        new("Bet Psc", 345.96f, 3.82f, 4.48f),
         new("Gam Psc", 349.29f, 3.28f, 3.70f),
         new("Del Psc", 12.22f, 7.59f, 4.44f),
         new("Eps Psc", 15.74f, 7.89f, 4.27f),
@@ -700,7 +664,6 @@ public class ConstellationStars : MonoBehaviour
         new("Xi Psc", 28.39f, 3.19f, 4.61f),
         new("Omi Psc", 26.35f, 9.16f, 4.26f),
         new("Phi Psc", 18.80f, 24.72f, 4.81f),
-        new("Pi Psc", 24.27f, 12.14f, 5.54f),
         new("Rho Psc", 21.56f, 19.17f, 5.35f),
         new("Sigma Psc", 15.70f, 31.80f, 5.50f),
         new("Ups Psc", 20.23f, 27.40f, 4.75f),
@@ -759,10 +722,9 @@ public class ConstellationStars : MonoBehaviour
         // Cepheus (Forma de casă)
         new("alf Cep", "bet Cep"),
         new("bet Cep", "gam Cep"),
-        new("gam Cep", "zet Cep"),
+        new("gam Cep", "iota Cep"),
+        new("iota Cep", "zet Cep"),
         new("zet Cep", "alf Cep"),
-        new("alf Cep", "eta Cep"), // Dacă eta e adăugată ulterior
-        new("del Cep", "eps Cep"),
 
         // Orion (Corpul și Centura)
         // === Orion ===
