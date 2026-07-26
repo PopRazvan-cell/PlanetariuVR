@@ -1,46 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
 
 /// <summary>
-/// Quiz auto-generat din stelele afisate in scenariul curent (fara API).
-/// Foloseste doar stelele stralucitoare (magnitudine mica, aprox. bortle 8).
-/// Tipuri de intrebari:
-///  - alegere multipla (culoare / constelatie / cea mai stralucitoare / emisfera)
-///  - "arata o stea" cu laserul + pinch (stea dintr-o constelatie / cea mai stralucitoare)
-/// Ofera feedback (corect/gresit + explicatie) si scor.
+/// Quiz cu intrebari conceptuale despre cer (alegere multipla), potrivite pe lectii.
+/// Intrebarile sunt un set fix; la fiecare quiz se aleg aleator cateva.
+/// Raspuns prin laser + pinch (mana dreapta). Feedback (corect/gresit + raspuns) si scor.
 /// </summary>
 public class QuizManager : MonoBehaviour
 {
     [Header("Referinte")]
-    public OVRHand rightHand;              // aceeasi mana ca AstroLaser
-    public AstroLaser astroLaser;          // il suprimam in timpul quiz-ului
-    public TextToSpeechManager speech;     // optional, pentru narare
-    public PlanetariumManager planetariumManager; // pentru latitudine (emisfera)
+    public OVRHand rightHand;           // aceeasi mana ca AstroLaser
+    public AstroLaser astroLaser;       // il suprimam in timpul quiz-ului
+    public TextToSpeechManager speech;  // optional, pentru narare
 
     [Header("Setari")]
     public int questionsPerQuiz = 5;
-    // Doar stelele mai stralucitoare de aceasta magnitudine intra in quiz (~bortle 8 = cele mai luminoase).
-    public float maxMagnitude = 4.0f;
     public OVRHand.HandFinger pinchFinger = OVRHand.HandFinger.Index;
     public float pinchCooldown = 0.6f;
     public float feedbackSeconds = 2.5f;
-    public float raycastDistance = 6000f;  // stelele sunt departe (raza ~1000)
+    public float raycastDistance = 100f;
 
     [Header("Asezare (in fata camerei)")]
     public float distance = 2.5f;
-    public float questionHeight = 0.34f;
-    public float firstOptionOffset = 0.06f;
-    public float optionSpacing = 0.20f;
-    public Vector2 questionSize = new Vector2(1.1f, 0.28f);
-    public Vector2 optionSize = new Vector2(1.0f, 0.16f);
+    public float questionHeight = 0.46f;
+    public float firstOptionOffset = 0.10f;
+    public float optionSpacing = 0.26f;
+    public Vector2 questionSize = new Vector2(1.3f, 0.36f);
+    public Vector2 optionSize = new Vector2(1.25f, 0.22f);
     // Folosite ca font MAXIM; textul se auto-dimensioneaza sa umple panoul.
-    public float questionFontSize = 0.11f;
-    public float optionFontSize = 0.11f;
+    public float questionFontSize = 0.09f;
+    public float optionFontSize = 0.08f;
 
     [Header("Culori")]
     public Color panelColor = new Color(0f, 0f, 0f, 0.85f);
@@ -52,24 +44,54 @@ public class QuizManager : MonoBehaviour
     private bool quizActive;
     private float lastPinchTime;
 
-    private class StarInfo
-    {
-        public StarData data;
-        public float mag;
-        public Dictionary<string, string> fields;
-    }
-
     private class Question
     {
-        public bool isPoint;                       // true = "arata o stea" (laser+pinch pe stea)
         public string text;
-        public string explanation;
-        // alegere multipla:
         public string[] options;
         public int correct;
-        // "arata o stea":
-        public System.Func<StarData, bool> isCorrectStar;
     }
+
+    // Setul de intrebari. PRIMA optiune din fiecare rand e raspunsul CORECT
+    // (se amesteca automat la afisare). Usor de extins.
+    private static readonly (string q, string[] options)[] Pool = new (string, string[])[]
+    {
+        ("De ce se mișcă stelele pe cer în timpul nopții?",
+            new[]{"Pentru că Pământul se rotește", "Pentru că stelele zboară", "Pentru că se mișcă Luna"}),
+        ("În ce direcție răsar stelele și Soarele?",
+            new[]{"De la est", "De la vest", "De la nord"}),
+        ("Ce se întâmplă cu stelele privite de la Polul Nord?",
+            new[]{"Se rotesc în cerc, fără să răsară sau să apună", "Răsar și apun ca la noi", "Stau nemișcate"}),
+        ("Steaua Polară se află aproape deasupra capului la…?",
+            new[]{"Polul Nord", "Ecuator", "Polul Sud"}),
+        ("Cu cât mergem mai spre nord, Steaua Polară pe cer…?",
+            new[]{"Urcă mai sus", "Coboară", "Dispare"}),
+        ("De ce vedem alte constelații în emisfera sudică?",
+            new[]{"Pentru că privim spre altă parte a bolții cerești", "Pentru că e mai cald", "Pentru că e ziua"}),
+        ("La ecuator, de-a lungul unui an, câte constelații putem vedea?",
+            new[]{"Aproape toate", "Doar jumătate", "Doar câteva"}),
+        ("De ce vedem constelații diferite în fiecare anotimp?",
+            new[]{"Pentru că Pământul se învârte în jurul Soarelui", "Pentru că stelele dispar", "Pentru că se schimbă vremea"}),
+        ("Ce este o constelație?",
+            new[]{"Un grup de stele care formează un desen pe cer", "O singură stea foarte mare", "O planetă"}),
+        ("Ce înseamnă „latitudine nordică”?",
+            new[]{"Că ne aflăm în emisfera nordică", "Că e frig", "Că suntem la Polul Nord"}),
+        ("Soarele este de fapt…?",
+            new[]{"O stea", "O planetă", "Un satelit"}),
+        ("De ce e cerul întunecat noaptea?",
+            new[]{"Pentru că Pământul e întors dinspre Soare", "Pentru că stelele se sting", "Pentru că Luna acoperă Soarele"}),
+        ("Ce se întâmplă când accelerăm timpul într-un scenariu?",
+            new[]{"Vedem cerul mișcându-se mult mai repede", "Ne apropiem de stele", "Cerul se luminează"}),
+        ("La ecuator, stelele răsar și apun…?",
+            new[]{"Aproape drept, în sus și în jos", "În cerc, fără să apună", "Rămân pe loc"}),
+        ("Ce constelație celebră se vede din emisfera sudică (Sydney), dar nu de la noi?",
+            new[]{"Crucea Sudului", "Ursa Mare", "Orion"}),
+        ("Câte stele principale are Carul Mare (Ursa Mare)?",
+            new[]{"7", "100", "2"}),
+        ("Banda albicioasă de lumină de pe cerul întunecat se numește…?",
+            new[]{"Calea Lactee", "Curcubeu", "Auroră"}),
+        ("La Polul Sud, în locul Stelei Polare, cerul…?",
+            new[]{"Se rotește în jurul polului sud, fără o stea polară strălucitoare", "Are tot Steaua Polară", "Are Soarele mereu sus"}),
+    };
 
     // ─────────────── API public ───────────────
 
@@ -83,26 +105,14 @@ public class QuizManager : MonoBehaviour
         if (quizActive) yield break;
         quizActive = true;
 
-        if (planetariumManager == null) planetariumManager = FindObjectOfType<PlanetariumManager>();
-
-        List<Question> questions = BuildQuestions(GatherStars(), questionsPerQuiz);
-        if (questions.Count == 0)
-        {
-            Debug.LogWarning("QuizManager: nu am putut genera intrebari (prea putine stele luminoase).");
-            quizActive = false;
-            yield break;
-        }
-
+        List<Question> questions = BuildQuestions(questionsPerQuiz);
         if (astroLaser != null) astroLaser.suppressPinchAction = true;
 
         int score = 0;
         for (int i = 0; i < questions.Count; i++)
         {
             bool ok = false;
-            if (questions[i].isPoint)
-                yield return StartCoroutine(AskPointQuestion(questions[i], i + 1, questions.Count, r => ok = r));
-            else
-                yield return StartCoroutine(AskChoiceQuestion(questions[i], i + 1, questions.Count, r => ok = r));
+            yield return StartCoroutine(AskQuestion(questions[i], i + 1, questions.Count, r => ok = r));
             if (ok) score++;
         }
 
@@ -112,166 +122,25 @@ public class QuizManager : MonoBehaviour
         quizActive = false;
     }
 
-    // ─────────────── Adunare stele + parsare ───────────────
+    // ─────────────── Construire intrebari ───────────────
 
-    List<StarInfo> GatherStars()
+    List<Question> BuildQuestions(int count)
     {
-        var list = new List<StarInfo>();
-        foreach (StarData sd in FindObjectsOfType<StarData>())
+        var all = new List<Question>();
+        foreach (var (q, opts) in Pool)
         {
-            if (sd == null || !sd.gameObject.activeInHierarchy) continue;
-            if (string.IsNullOrEmpty(sd.starName) || sd.starName.StartsWith("Stea")) continue;
-            if (string.IsNullOrEmpty(sd.desc)) continue;
-
-            var fields = ParseDesc(sd.desc);
-            float mag = 99f;
-            if (fields.TryGetValue("Magnitudine", out string mstr)) mag = ParseLeadingFloat(mstr, 99f);
-            if (mag > maxMagnitude) continue; // doar stelele stralucitoare (bortle 8)
-
-            list.Add(new StarInfo { data = sd, mag = mag, fields = fields });
-        }
-        return list;
-    }
-
-    Dictionary<string, string> ParseDesc(string desc)
-    {
-        var d = new Dictionary<string, string>();
-        if (string.IsNullOrEmpty(desc)) return d;
-        foreach (string line in desc.Split('\n'))
-        {
-            int c = line.IndexOf(':');
-            if (c > 0)
+            string correctText = opts[0];             // prima e cea corecta
+            var shuffled = new List<string>(opts);
+            Shuffle(shuffled);
+            all.Add(new Question
             {
-                string k = line.Substring(0, c).Trim();
-                string v = line.Substring(c + 1).Trim();
-                if (!string.IsNullOrEmpty(v) && !d.ContainsKey(k)) d[k] = v;
-            }
-        }
-        return d;
-    }
-
-    float ParseLeadingFloat(string s, float fallback)
-    {
-        Match m = Regex.Match(s, @"-?\d+(\.\d+)?");
-        return m.Success && float.TryParse(m.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float f) ? f : fallback;
-    }
-
-    // ─────────────── Generare intrebari ───────────────
-
-    List<Question> BuildQuestions(List<StarInfo> stars, int count)
-    {
-        var candidates = new List<Question>();
-
-        // --- Alegere multipla usoara: culoare / constelatie ---
-        var mcFields = new (string key, string q)[]
-        {
-            ("Culoare",     "Ce culoare are {0}?"),
-            ("Constelație", "În ce constelație se află {0}?"),
-        };
-        foreach (var star in stars)
-        {
-            foreach (var f in mcFields)
-            {
-                if (!star.fields.TryGetValue(f.key, out string val) || string.IsNullOrEmpty(val)) continue;
-                var pool = new List<string>();
-                foreach (var other in stars)
-                    if (other != star && other.fields.TryGetValue(f.key, out string ov) && ov != val && !pool.Contains(ov))
-                        pool.Add(ov);
-                if (pool.Count < 3) continue;
-
-                var opts = new List<string> { val };
-                for (int k = 0; k < 3 && pool.Count > 0; k++)
-                {
-                    int idx = Random.Range(0, pool.Count);
-                    opts.Add(pool[idx]); pool.RemoveAt(idx);
-                }
-                Shuffle(opts);
-                candidates.Add(new Question
-                {
-                    text = string.Format(f.q, star.data.starName),
-                    options = opts.ToArray(),
-                    correct = opts.IndexOf(val),
-                    explanation = $"{star.data.starName}: {f.key} = {val}."
-                });
-            }
-        }
-
-        // --- "Care e cea mai stralucitoare stea?" (alegere multipla) ---
-        if (stars.Count >= 4)
-        {
-            StarInfo brightest = stars[0];
-            foreach (var s in stars) if (s.mag < brightest.mag) brightest = s;
-
-            var others = new List<StarInfo>(stars); others.Remove(brightest);
-            Shuffle(others);
-            var opts = new List<string> { brightest.data.starName };
-            for (int k = 0; k < 3 && k < others.Count; k++) opts.Add(others[k].data.starName);
-            if (opts.Count == 4)
-            {
-                Shuffle(opts);
-                candidates.Add(new Question
-                {
-                    text = "Care dintre acestea e cea mai strălucitoare stea?",
-                    options = opts.ToArray(),
-                    correct = opts.IndexOf(brightest.data.starName),
-                    explanation = $"{brightest.data.starName} e cea mai strălucitoare (magnitudine {brightest.mag})."
-                });
-            }
-        }
-
-        // --- "In ce emisfera suntem?" (din latitudine) ---
-        if (planetariumManager != null)
-        {
-            float lat = planetariumManager.latitude;
-            var opts = new List<string> { "Emisfera nordică", "Emisfera sudică" };
-            int correct = lat >= 0f ? 0 : 1;
-            candidates.Add(new Question
-            {
-                text = "În ce emisferă ne aflăm?",
-                options = opts.ToArray(),
-                correct = correct,
-                explanation = $"Latitudinea observatorului e {lat:F1}°, deci suntem în {opts[correct].ToLower()}."
+                text = q,
+                options = shuffled.ToArray(),
+                correct = shuffled.IndexOf(correctText)
             });
         }
-
-        // --- "Arata o stea din constelatia X" (point-at-star) ---
-        var byCon = new Dictionary<string, int>();
-        foreach (var s in stars)
-            if (s.fields.TryGetValue("Constelație", out string con) && !string.IsNullOrEmpty(con))
-                byCon[con] = byCon.TryGetValue(con, out int n) ? n + 1 : 1;
-        foreach (var kv in byCon)
-        {
-            string con = kv.Key; // capturam local
-            candidates.Add(new Question
-            {
-                isPoint = true,
-                text = $"Arată cu laserul o stea din constelația {con}, apoi fă pinch.",
-                explanation = $"Trebuia o stea din constelația {con}.",
-                isCorrectStar = sd =>
-                {
-                    var fld = ParseDesc(sd.desc);
-                    return fld.TryGetValue("Constelație", out string c) && c == con;
-                }
-            });
-        }
-
-        // --- "Arata cea mai stralucitoare stea" (point-at-star) ---
-        if (stars.Count > 0)
-        {
-            StarInfo brightest = stars[0];
-            foreach (var s in stars) if (s.mag < brightest.mag) brightest = s;
-            StarData target = brightest.data;
-            candidates.Add(new Question
-            {
-                isPoint = true,
-                text = "Arată cu laserul cea mai strălucitoare stea, apoi fă pinch.",
-                explanation = $"Cea mai strălucitoare era {target.starName}.",
-                isCorrectStar = sd => sd == target
-            });
-        }
-
-        Shuffle(candidates);
-        return candidates.GetRange(0, Mathf.Min(count, candidates.Count));
+        Shuffle(all);
+        return all.GetRange(0, Mathf.Min(count, all.Count));
     }
 
     void Shuffle<T>(List<T> list)
@@ -285,7 +154,7 @@ public class QuizManager : MonoBehaviour
 
     // ─────────────── Intrebare cu alegere multipla ───────────────
 
-    IEnumerator AskChoiceQuestion(Question q, int idx, int total, System.Action<bool> onResult)
+    IEnumerator AskQuestion(Question q, int idx, int total, System.Action<bool> onResult)
     {
         GetLayout(out Vector3 basePos, out Quaternion rot);
 
@@ -314,7 +183,6 @@ public class QuizManager : MonoBehaviour
         {
             QuizOption hovered = RaycastComponent<QuizOption>();
             foreach (var b in buttons) SetColor(b.background, b == hovered ? hoverColor : optionColor);
-
             if (PinchEdge(ref wasPinch) && hovered != null) chosen = hovered.index;
             yield return null;
         }
@@ -327,42 +195,12 @@ public class QuizManager : MonoBehaviour
             else SetColor(b.background, optionColor);
         }
         qText.text = (correct ? "<color=#7CFC9A>Corect!</color>\n" : "<color=#FF8080>Greșit.</color>\n")
-                   + $"<size=75%>{q.explanation}</size>";
-        Narrate(correct ? "Corect!" : "Greșit. " + q.explanation);
+                   + $"<size=75%>Răspuns corect: {q.options[q.correct]}</size>";
+        Narrate(correct ? "Corect!" : "Greșit. Răspuns corect: " + q.options[q.correct]);
 
         yield return new WaitForSeconds(feedbackSeconds);
         Destroy(questionPanel);
         foreach (var b in buttons) if (b != null) Destroy(b.gameObject);
-        onResult?.Invoke(correct);
-    }
-
-    // ─────────────── Intrebare "arata o stea" ───────────────
-
-    IEnumerator AskPointQuestion(Question q, int idx, int total, System.Action<bool> onResult)
-    {
-        GetLayout(out Vector3 basePos, out Quaternion rot);
-        // panoul mai sus, ca sa lase cerul liber pentru cautat
-        GameObject panel = MakePanel("QuizPoint", basePos + Vector3.up * (questionHeight + 0.25f), rot,
-            questionSize, panelColor, questionFontSize, out TextMeshPro qText, false);
-        qText.text = $"<size=70%><color=#7FDBFF>Întrebarea {idx}/{total}</color></size>\n{q.text}";
-        Narrate(q.text);
-
-        StarData picked = null;
-        bool wasPinch = false;
-        while (picked == null)
-        {
-            StarData hovered = RaycastComponent<StarData>();
-            if (PinchEdge(ref wasPinch) && hovered != null) picked = hovered;
-            yield return null;
-        }
-
-        bool correct = q.isCorrectStar != null && q.isCorrectStar(picked);
-        qText.text = (correct ? "<color=#7CFC9A>Corect!</color>\n" : "<color=#FF8080>Greșit.</color>\n")
-                   + $"<size=70%>Ai ales: {picked.starName}\n{q.explanation}</size>";
-        Narrate(correct ? "Corect!" : "Greșit. " + q.explanation);
-
-        yield return new WaitForSeconds(feedbackSeconds);
-        Destroy(panel);
         onResult?.Invoke(correct);
     }
 
